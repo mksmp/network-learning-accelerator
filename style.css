@@ -1,0 +1,145 @@
+body, h1, h2, h3, h4, p, a {
+    margin: 0;
+    font-size: 100%; 
+    font-weight: normal;
+  }
+  
+  body {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .header {
+    height: 50vh;
+    background-color: rgb(255, 255, 255);
+    background-image: url(https://www.lavorare.net/nuovo/wp-content/uploads/2018/11/project_management.jpg);
+    background-size: contain;
+    background-position: center;
+    text-align: center;
+  }
+  
+  .header-title {
+    font-size: 80px;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-weight: 500;
+    margin: auto;
+  }
+  
+  .title {
+    margin-top: 20px;
+    font-size: 45px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+  }
+
+  .overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .7);
+    display: flex;
+  }
+
+  .content {
+    font-size: 0;
+    width: 1675px;
+    margin: 30px auto 20px auto;
+  }
+  
+  .git-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .git-content {
+      font-size: 0;
+      width: 100%;
+      margin: 30px auto 30px auto;
+  }
+
+  .project-info-content {
+    font-size: 0;
+    width: 1000px;
+    margin: 30px auto 30px auto;
+  }
+  
+  .card {
+    width: 350px;
+    margin-bottom: 60px;
+    padding: 45px 45px 70px;
+    display: inline-block;
+    margin-right: 90px;
+    box-shadow: 4px 4px 5px rgba(250, 50, 50, 0.4);
+  }
+
+  .card-src {
+    width: 800px;
+    height: 70px;
+    margin-bottom: 60px;
+    padding: 45px 45px 70px;
+    box-shadow: 4px 4px 5px rgba(250, 50, 50, 0.4);
+  }
+
+  .card-project-info {
+    width: 1000px;
+    height: 500px;
+    margin-bottom: 60px;
+    padding: 45px 45px 70px;
+    box-shadow: 0px 0px 20px rgba(250, 50, 50, 0.4);
+    border-radius: 0 40px
+  }
+  
+  .no-right-margin {
+    margin-right: 0px;
+  }
+  
+  .card-title {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  
+  .card-text {
+    font-size: 20px;
+  }
+
+  .card-text-color {
+    font-size: 20px;
+    color:palevioletred;
+  }
+  
+  .card-image {
+    width: 100%;
+    margin-bottom: 25px;
+  }
+
+  .project-info {
+    text-align:center;
+    font-size:45px;
+    margin-bottom: 20px;
+  }
+  
+  .opisanie-title {
+    font-size:30px;
+  }
+
+  .footer {
+    height: 300px;
+    background-color: #000;
+    display: flex;
+  }
+
+  .contact-info {
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    margin: auto;
+  }
+
+  .info-miloradov {
+    margin-top: 30px;
+  }
