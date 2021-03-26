@@ -1,28 +1,29 @@
 #ifndef REG_H
 #define REG_H
 
-#include <QDialog>
+#include <QWidget>
 
 namespace Ui {
-class Reg;
+class reg;
 }
 
-class Reg : public QDialog
+class reg : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit Reg(QWidget *parent = nullptr);
-    ~Reg();
+    explicit reg(QWidget *parent = nullptr);
+    ~reg();
 
 signals:
     void mainWindow();  // Сигнал для основного окна на открытие
 
+
 private slots:
-    void on_buttonBox_accepted();
+    void on_buttonBox_rejected();
 
 private:
-    Ui::Reg *ui;
+    Ui::reg *ui;
 };
 
 #endif // REG_H

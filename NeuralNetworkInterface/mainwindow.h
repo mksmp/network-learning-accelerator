@@ -1,36 +1,32 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QMainWindow>
 #include "auth.h"//для переключения на окно авторизации
 #include "reg.h"
-#include "criterion.h"
-#include <QMainWindow>
+//#include "criterion.h"
 
-namespace Ui {
-class MainWindow;
-}
+
+QT_BEGIN_NAMESPACE
+namespace Ui { class MainWindow; }
+QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = nullptr);
+    MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
 private slots:
-
     void on_Authorization_clicked();
 
     void on_Registretion_clicked();
 
-    void on_Train_clicked();
-
 private:
     Ui::MainWindow *ui;
     auth *w_auth; //для переключения на окно авторизации создаем указатель
-    Reg *w_reg; // для переключения на окно регистрации
-    criterion *w_crit; // для переключения на окно обучения нейронной сети
+    reg *w_reg; // для переключения на окно регистрации
 };
-
 #endif // MAINWINDOW_H
