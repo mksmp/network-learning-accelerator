@@ -16,7 +16,7 @@ body, h1, h2, h3, h4, p, a {
     height: 50vh;
     background-color: rgb(255, 255, 255);
     background-image: url(https://www.lavorare.net/nuovo/wp-content/uploads/2018/11/project_management.jpg);
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     text-align: center;
   }
