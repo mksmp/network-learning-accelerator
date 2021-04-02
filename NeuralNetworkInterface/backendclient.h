@@ -2,7 +2,7 @@
 #define BACKENDCLIENT_H
 #include <QString>
 
-bool authorize(QString login, QString pass);
+QString authorize(QString login, QString pass);
 
 class BackEndClient
 {

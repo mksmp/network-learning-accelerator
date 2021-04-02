@@ -12,6 +12,7 @@ public:
     ~MyTcpClient();
 
 signals:
+    void mainWindow();
 
 private:
     QTcpSocket *clientSocket;
@@ -23,5 +24,4 @@ public slots:
     void slot_disconnected();
 
 };
-
 #endif // MYTCPCLIENT_H

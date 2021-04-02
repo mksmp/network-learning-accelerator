@@ -17,6 +17,8 @@ public:
 
 private slots:
 
+signals:
+    void mainWindow();
 
 private:
     Ui::education *ui;

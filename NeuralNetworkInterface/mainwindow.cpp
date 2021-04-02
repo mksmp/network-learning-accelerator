@@ -14,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     // подключаем к слоту запуска главного окна по кнопке во втором окне
    connect(w_auth, &auth::mainWindow, this, &MainWindow::show);
    connect(w_reg, &reg::mainWindow, this, &MainWindow::show);
+   connect(w_reg, &reg::mainWindow, this, &MainWindow::show);
 
 }
 
