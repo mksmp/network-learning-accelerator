@@ -30,7 +30,6 @@ body, h1, h2, h3, h4, p, a {
   }
   
   .title {
-    margin-top: 20px;
     font-size: 35px;
     color: rgb(0, 0, 0);
     text-align: center;
@@ -91,6 +90,15 @@ body, h1, h2, h3, h4, p, a {
     margin-bottom: 60px;
     padding: 45px 45px 70px;
     box-shadow: 0px 0px 30px rgba(250, 50, 50, 0.4);
+  }
+
+  .card-info-first {
+    width: 500px;
+    height: 300px;
+    margin-bottom: 60px;
+    padding: 45px 45px 70px;
+    box-shadow: 0px 0px 20px rgba(250, 50, 50, 0.4);
+    border-radius: 0 40px
   }
 
   .card-project-info {
