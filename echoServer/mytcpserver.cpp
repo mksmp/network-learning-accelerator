@@ -2,7 +2,7 @@
 #include <QDebug>
 #include <QCoreApplication>
 #include <QString>
-#include "database.h"
+#include "functions.h"
 
 
 MyTcpServer::~MyTcpServer()
@@ -52,58 +52,28 @@ void MyTcpServer::slotServerRead()
         std::string login = "";
         std::string pass = "";
         std::string message;
-        std::string flag;
-        std::string email;
         message = array.toStdString();
         qDebug()<<QString::fromStdString(message);
 
         int pos = message.find("&");
-        flag = message.substr(0,pos);
         message.erase(0,pos+1);
 
-        if (flag =="auth")
-        {
-            pos = message.find("&");
-            login = message.substr(0,pos);
-            message.erase(0,pos+1);
+
+        pos = message.find("&");
+        login = message.substr(0,pos);
+        message.erase(0,pos+1);
 
 
-            pos = message.find("&");
-            pass = message.substr(0,pos);
-            message.erase(0,pos+1);
+        pos = message.find("&");
+        pass = message.substr(0,pos);
+        message.erase(0,pos+1);
 
-            qDebug()<<"login = "<<QString::fromStdString(login)
-                   <<"password = "<< QString::fromStdString(pass)
-                  << "result = " << authorize(login, pass);
+        qDebug()<<"login = "<<QString::fromStdString(login)
+               <<"password = "<< QString::fromStdString(pass)
+              << "result = " << authorize(login,pass);
 
-            array.clear();
-            array.append(authorize(login,pass));
-        }
-        else //if (flag == "reg")
-        {
-            pos = message.find("&");
-            login = message.substr(0,pos);
-            message.erase(0,pos+1);
-
-            pos = message.find("&");
-            pass = message.substr(0,pos);
-            message.erase(0,pos+1);
-
-            pos = message.find("&");
-            email = message.substr(0,pos);
-            message.erase(0,pos+1);
-
-            QString result = registration(login, pass, email);
-
-            qDebug()<<"login = "<<QString::fromStdString(login)
-                   <<"password = "<< QString::fromStdString(pass)
-                  << "email = " <<  QString::fromStdString(email)
-                    << "result = " << result;
-
-            array.clear();
-            array.append(result);
-        }
-
+        array.clear();
+        array.append(authorize(login,pass));
 
         clientSocket->write(array);
 

@@ -2,8 +2,6 @@
 #include <QDebug>
 #include <QString>
 #include <QMessageBox>
-#include "window.h"
-#include "ui_window.h"
 
 MyTcpClient::MyTcpClient(QObject *parent) : QObject(parent)
 {
@@ -11,9 +9,6 @@ MyTcpClient::MyTcpClient(QObject *parent) : QObject(parent)
     clientSocket->connectToHost("127.0.0.1", 33333);
     connect(clientSocket,SIGNAL(connected()),SLOT(slot_connected()));
     connect(clientSocket,SIGNAL(readyRead()),SLOT(slot_readyRead()));
-
-
-
 
 }
 
@@ -39,28 +34,9 @@ MyTcpClient::MyTcpClient(QObject *parent) : QObject(parent)
             message += array.toStdString();
         }
 
-
-        if (message == "auth&1")
-        {
-            emit Auth();
-        }
-        if (message == "auth&0")
-        {
-            emit FailAuth();
-            qDebug() << "fail auth";
-
-        }
-        if (message == "reg&1")
-        {
-            emit Reg();
-        }
-
-        if (message == "reg&0")
-        {
-            qDebug() << "fail reg";
-            emit FailReg();
-        }
-
+        QMessageBox Msg;
+        Msg.setText(QString::fromStdString(message));
+        Msg.exec();
     }
 
     void MyTcpClient::slot_send_to_server(QString message)
@@ -73,5 +49,3 @@ MyTcpClient::MyTcpClient(QObject *parent) : QObject(parent)
     {
         clientSocket->close();
     }
-
-

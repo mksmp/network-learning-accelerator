@@ -25,3 +25,10 @@ private:
     QMap<int,QTcpSocket *> SClients;
 };
 #endif // MYTCPSERVER_H
+
+
+
+
+
+
+

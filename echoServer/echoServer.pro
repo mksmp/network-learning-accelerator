@@ -1,6 +1,5 @@
 QT -= gui
-QT +=network
-QT +=sql
+QT += network #Для работы с сетью
 
 CONFIG += c++11 console
 CONFIG -= app_bundle
@@ -10,9 +9,12 @@ CONFIG -= app_bundle
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        database.cpp \
+        functions.cpp \
         main.cpp \
         mytcpserver.cpp
+
+TRANSLATIONS += \
+    echoServer_ru_RU.ts
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -20,5 +22,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    database.h \
+    functions.h \
     mytcpserver.h

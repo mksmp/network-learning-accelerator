@@ -3,7 +3,6 @@
 
 #include <QObject>
 #include <QTcpSocket>
-#include "window.h"
 
 class MyTcpClient : public QObject
 {
@@ -12,19 +11,11 @@ public:
     explicit MyTcpClient(QObject *parent = nullptr);
     ~MyTcpClient();
 
-
 signals:
-    void Auth();
-    void FailAuth();
-    void Reg();
-    void FailReg();
+    void mainWindow();
 
 private:
     QTcpSocket *clientSocket;
-    void proverca(QString message);
-
-
-
 
 public slots:
     void slot_connected();
