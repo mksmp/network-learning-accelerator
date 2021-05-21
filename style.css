@@ -146,10 +146,6 @@ body, h1, h2, h3, h4, p, a {
     font-size:35px;
     margin-bottom: 20px;
   }
-  
-  .opisanie-title {
-    font-size:30px;
-  }
 
   .footer {
     height: 300px;
@@ -162,10 +158,6 @@ body, h1, h2, h3, h4, p, a {
     color: white;
     font-size: 30px;
     margin: auto;
-  }
-
-  .info-miloradov {
-    margin-top: 30px;
   }
 
   .card::before,
