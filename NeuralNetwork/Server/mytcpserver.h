@@ -24,6 +24,6 @@ private:
     int server_status;
     QMap<int,QTcpSocket *> SClients;
     QByteArray parsing(QByteArray array);
-     std::string neuralpars(std::string message);
+    void neuralpars(std::string message);
 };
 #endif // MYTCPSERVER_H

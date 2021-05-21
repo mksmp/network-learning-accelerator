@@ -12,7 +12,9 @@ CONFIG -= app_bundle
 SOURCES += \
         database.cpp \
         main.cpp \
-        mytcpserver.cpp
+        mytcpserver.cpp \
+        Neuro_Network_vector(variety).cpp \
+        communication.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -21,4 +23,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     database.h \
-    mytcpserver.h
+    mytcpserver.h \
+    communication.h

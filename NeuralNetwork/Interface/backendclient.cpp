@@ -1,19 +1,22 @@
 #include "backendclient.h"
-#include <QString>
 
-QString authorize(QString login,QString pass, MyTcpClient *clientAuth )
+
+bool check(std::string pass)
 {
-    QString message = "auth&"+login+"&"+pass+"&";
-    clientAuth->slot_send_to_server(message);
+    if(pass.size() > 8)
+    {
+        for (int i = 0; i < pass.size(); i++)
+        {
 
-    return "1";
-}
-
-
-QString registration(QString login, QString pass, QString email, MyTcpClient *clientAuth)
-{
-    QString message = "reg&"+login+"&"+pass+"&"+email+"&";
-    clientAuth->slot_send_to_server(message);
-
-    return "1";
+            if ( pass[i] < 48 or  pass[i] > 122)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }

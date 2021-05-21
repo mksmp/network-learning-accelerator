@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QFrame>
 #include <QTcpSocket>
+#include <string>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Window; }
@@ -29,26 +30,20 @@ private slots:
     void on_Registretion_clicked();
     void on_buttonBox_accepted();
     void on_buttonBox_rejected();
-    bool check(std::string pass);
-
-
     void on_education_clicked();
-
     void on_buttonBox_2_accepted();
 
 public slots:
     void MyTcpClient();
-    void disMyTcpClient();
     void slot_connected();
     void slot_readyRead();
     void slot_send_to_server(QString message);
     void slot_disconnected();
+    bool check(std::string pass);
 
 
 private:
     Ui::Window *ui;
-   // MyTcpClient *clientAuth;
-
     QTcpSocket *clientSocket;
     void proverca(QString message);
 

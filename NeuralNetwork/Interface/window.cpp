@@ -38,11 +38,8 @@ void Window::on_OK_clicked()
     MyTcpClient();
     if (login !="" and password !="")
     {
-        QString message = "auth&"+login+"&"+password+"&";
+        QString message = "auth&"+login+"&"+password;
         slot_send_to_server(message);
-        // убрать
-        ui->winauth->setVisible(false);
-        ui->winsecond->setVisible(true);
     }
     else
     {
@@ -70,7 +67,7 @@ void Window::on_buttonBox_accepted()
             std::string password = pass.toStdString();
             if (check(password))
             {
-                QString message = "reg&"+login+"&"+pass+"&"+email+"&";
+                QString message = "reg&"+login+"&"+pass+"&"+email;
                 slot_send_to_server(message);
             }
         }
@@ -100,7 +97,7 @@ void Window::FailAuth()
 
 void Window::Reg()
 {
-    ui->winauth->setVisible(false);
+    ui->winreg->setVisible(false);
     ui->winfirst->setVisible(true);
 }
 
@@ -113,9 +110,10 @@ bool Window::check(std::string pass)
 {
     if(pass.size() > 8)
     {
-        for (int i = 48; i <= 122; i++)
+        for (int i = 0; i < pass.size(); i++)
         {
-            if (pass.find(i) != std::string::npos)
+
+            if ( pass[i] < 48 or  pass[i] > 122)
             {
                 QMessageBox::critical(this, "ERROR", "The password can contain only letters of the Latin alphabet and numbers!!!");
                 return false;
@@ -152,18 +150,12 @@ void Window::on_buttonBox_2_accepted()
 }
 
 
-
     void Window::MyTcpClient()
-{
-    clientSocket = new QTcpSocket(this);
-    clientSocket->connectToHost("127.0.0.1", 33333);
-    connect(clientSocket,SIGNAL(connected()),SLOT(slot_connected()));
-    connect(clientSocket,SIGNAL(readyRead()),SLOT(slot_readyRead()));
-}
-
-    void Window::disMyTcpClient()
     {
-        clientSocket->close();
+        clientSocket = new QTcpSocket(this);
+        clientSocket->connectToHost("127.0.0.1", 33333);
+        connect(clientSocket,SIGNAL(connected()),SLOT(slot_connected()));
+        connect(clientSocket,SIGNAL(readyRead()),SLOT(slot_readyRead()));
     }
 
     void Window::slot_connected()
@@ -181,7 +173,6 @@ void Window::on_buttonBox_2_accepted()
             array = clientSocket->readAll();
             message += array.toStdString();
         }
-
 
         if (message == "auth&1")
         {
@@ -204,6 +195,8 @@ void Window::on_buttonBox_2_accepted()
             FailReg();
         }
         else qDebug() << "fail";
+
+        slot_disconnected();
 
     }
 

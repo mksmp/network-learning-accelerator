@@ -7,9 +7,9 @@ QSqlDatabase openDataBase()
     QSqlDatabase  db;
         db = QSqlDatabase::addDatabase("QPSQL");
         db.setHostName("localhost");
-        db.setDatabaseName("neuralnetworcbd");
+        db.setDatabaseName("neuralnetworkdatabase");
         db.setUserName("postgres");
-        db.setPassword("123");
+        db.setPassword("23012002maks");
     if (db.open())
     {
         qDebug() << "db has opened";

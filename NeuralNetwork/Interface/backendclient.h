@@ -1,11 +1,10 @@
 #ifndef BACKENDCLIENT_H
 #define BACKENDCLIENT_H
-#include "mytcpclient.h"
-#include <QString>
+#include <string>
 
-QString authorize(QString login, QString pass, MyTcpClient *clientAuth);
+bool check(std::string pass);
 
-QString registration(QString login, QString pass, QString email, MyTcpClient *clientAuth);
+
 
 
 #endif // BACKENDCLIENT_H

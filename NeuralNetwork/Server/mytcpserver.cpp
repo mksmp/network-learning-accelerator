@@ -3,7 +3,7 @@
 #include <QCoreApplication>
 #include <QString>
 #include "database.h"
-
+#include "Neuro_Network_vector(variety).cpp"
 
 
 MyTcpServer::~MyTcpServer()
@@ -94,9 +94,7 @@ void MyTcpServer::slotClientDisconnected()
      }
      else if (flag == "reg")
      {
-         pos = message.find("&");
-         email = message.substr(0,pos);
-         message.erase(0,pos+1);
+         email = message;
          result = registration(login, pass, email);
      }
      qDebug()<<"login = "<<QString::fromStdString(login)
@@ -109,19 +107,19 @@ void MyTcpServer::slotClientDisconnected()
      return array;
  }
 
-  std::string MyTcpServer::neuralpars(std::string message)
+  void MyTcpServer::neuralpars(std::string message)
   {
-      int colneurals;
-      int collayers;
       std::string colneurallayers;
 
       int pos = message.find("&");
-      colneurals = std::stoi(message.substr(0,pos));
+      int colneurals = std::stoi(message.substr(0,pos));
       message.erase(0,pos+1);
 
       pos = message.find("&");
-      collayers = std::stoi(message.substr(0,pos));
+      int collayers = std::stoi(message.substr(0,pos));
       message.erase(0,pos+1);
+
+      algoritm(colneurals, collayers);
 
 
   }
