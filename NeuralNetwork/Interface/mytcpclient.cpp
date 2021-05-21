@@ -1,8 +1,5 @@
 #include "mytcpclient.h"
 #include <QDebug>
-#include <QString>
-#include <QMessageBox>
-#include "window.h"
 
 MyTcpClient::MyTcpClient(QObject *parent) : QObject(parent)
 {

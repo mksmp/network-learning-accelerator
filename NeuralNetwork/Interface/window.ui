@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>499</width>
+    <width>798</width>
     <height>501</height>
    </rect>
   </property>
@@ -19,8 +19,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>500</width>
-      <height>500</height>
+      <width>800</width>
+      <height>531</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -34,11 +34,95 @@
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>501</width>
-       <height>481</height>
+       <width>801</width>
+       <height>501</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout">
+      <item row="4" column="1">
+       <widget class="QPushButton" name="Registretion">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <family>Monospac821 BT</family>
+          <pointsize>32</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color:white;</string>
+        </property>
+        <property name="text">
+         <string>Registration</string>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>10</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="2" column="2" rowspan="5">
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="0" column="0" colspan="3">
+       <spacer name="verticalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="1" column="0" colspan="3">
+       <widget class="QLabel" name="title_NN">
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt; font-weight:600; color:#fafafa;&quot;&gt;Neural Network&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <spacer name="verticalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
       <item row="3" column="1">
        <widget class="QPushButton" name="Authorization">
         <property name="sizePolicy">
@@ -66,28 +150,8 @@ box-shadow: 4px 4px 5px rgba(250, 50, 50, 0.4);
         </property>
        </widget>
       </item>
-      <item row="1" column="0" colspan="3">
-       <widget class="QLabel" name="title_NN">
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt; font-weight:600; color:#fafafa;&quot;&gt;Neural Network&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
-      </item>
       <item row="2" column="0" rowspan="5">
        <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="2" column="2" rowspan="5">
-       <spacer name="horizontalSpacer_2">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
@@ -112,70 +176,6 @@ box-shadow: 4px 4px 5px rgba(250, 50, 50, 0.4);
         </property>
        </spacer>
       </item>
-      <item row="4" column="1">
-       <widget class="QPushButton" name="Registretion">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="font">
-         <font>
-          <family>Monospac821 BT</family>
-          <pointsize>32</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color:white;</string>
-        </property>
-        <property name="text">
-         <string>Registration</string>
-        </property>
-        <property name="flat">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0" colspan="3">
-       <spacer name="verticalSpacer_3">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="2" column="1">
-       <spacer name="verticalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="6" column="1">
-       <spacer name="verticalSpacer">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>10</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
      </layout>
     </widget>
    </widget>
@@ -184,8 +184,8 @@ box-shadow: 4px 4px 5px rgba(250, 50, 50, 0.4);
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>500</width>
-      <height>501</height>
+      <width>800</width>
+      <height>521</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -199,8 +199,8 @@ box-shadow: 4px 4px 5px rgba(250, 50, 50, 0.4);
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>541</width>
-       <height>481</height>
+       <width>801</width>
+       <height>501</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
@@ -393,8 +393,8 @@ box-shadow: 4px 4px 5px rgba(250, 50, 50, 0.4);
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>500</width>
-      <height>501</height>
+      <width>800</width>
+      <height>511</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -408,8 +408,8 @@ box-shadow: 4px 4px 5px rgba(250, 50, 50, 0.4);
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>501</width>
-       <height>481</height>
+       <width>801</width>
+       <height>501</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout_3">
@@ -626,10 +626,10 @@ color: rgb(239, 239, 239);</string>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>-4</x>
-      <y>2</y>
-      <width>501</width>
-      <height>501</height>
+      <x>0</x>
+      <y>0</y>
+      <width>800</width>
+      <height>500</height>
      </rect>
     </property>
     <property name="text">
@@ -641,8 +641,8 @@ color: rgb(239, 239, 239);</string>
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>500</width>
-      <height>501</height>
+      <width>800</width>
+      <height>541</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -656,59 +656,13 @@ color: rgb(239, 239, 239);</string>
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>501</width>
-       <height>481</height>
+       <width>801</width>
+       <height>501</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout_4">
       <item row="3" column="2" rowspan="3">
        <spacer name="horizontalSpacer_8">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="2" column="1">
-       <spacer name="verticalSpacer_13">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="1" column="0" colspan="3">
-       <widget class="QLabel" name="title_NN_4">
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt; font-weight:600; color:#fafafa;&quot;&gt;Neural Network&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="1">
-       <spacer name="verticalSpacer_14">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>10</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="3" column="0" rowspan="3">
-       <spacer name="horizontalSpacer_9">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
@@ -729,6 +683,32 @@ color: rgb(239, 239, 239);</string>
          <size>
           <width>20</width>
           <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="2" column="1">
+       <spacer name="verticalSpacer_13">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="3" column="0" rowspan="3">
+       <spacer name="horizontalSpacer_9">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
          </size>
         </property>
        </spacer>
@@ -785,6 +765,26 @@ box-shadow: 4px 4px 5px rgba(250, 50, 50, 0.4);
         </property>
        </widget>
       </item>
+      <item row="6" column="1">
+       <spacer name="verticalSpacer_14">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>10</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="1" column="0" colspan="3">
+       <widget class="QLabel" name="title_NN_4">
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt; font-weight:600; color:#fafafa;&quot;&gt;Neural Network&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
       <item row="7" column="0" colspan="3">
        <spacer name="verticalSpacer_16">
         <property name="orientation">
@@ -806,8 +806,8 @@ box-shadow: 4px 4px 5px rgba(250, 50, 50, 0.4);
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>500</width>
-      <height>501</height>
+      <width>800</width>
+      <height>551</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -821,13 +821,13 @@ box-shadow: 4px 4px 5px rgba(250, 50, 50, 0.4);
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>501</width>
-       <height>481</height>
+       <width>801</width>
+       <height>501</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout_5">
-      <item row="6" column="1">
-       <widget class="QLineEdit" name="lineEdit_numlayers">
+      <item row="7" column="1">
+       <widget class="QLineEdit" name="collayers">
         <property name="font">
          <font>
           <pointsize>18</pointsize>
@@ -844,7 +844,66 @@ box-shadow: 4px 4px 5px rgba(250, 50, 50, 0.4);
         </property>
        </widget>
       </item>
-      <item row="12" column="1">
+      <item row="8" column="1">
+       <widget class="QLabel" name="title_inform_1">
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600; color:#ffffff;&quot;&gt;Введите количество нейронов в каждом слое через &amp;amp;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="1">
+       <widget class="QLineEdit" name="colneurallayers">
+        <property name="font">
+         <font>
+          <pointsize>18</pointsize>
+         </font>
+        </property>
+        <property name="inputMethodHints">
+         <set>Qt::ImhNone</set>
+        </property>
+        <property name="inputMask">
+         <string/>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <widget class="QLabel" name="title_inform_3">
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600; color:#ffffff;&quot;&gt;Введите количество слоев&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="3">
+       <widget class="QLabel" name="title_NN_5">
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt; font-weight:600; color:#fafafa;&quot;&gt;Neural Network&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" colspan="3">
+       <spacer name="verticalSpacer_19">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="3" column="1" rowspan="2">
+       <widget class="QLabel" name="title_inform_2">
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600; color:#ffffff;&quot;&gt;Введите количество нейронов в 1-ом слое&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+      <item row="11" column="1">
        <spacer name="verticalSpacer_17">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
@@ -857,25 +916,7 @@ box-shadow: 4px 4px 5px rgba(250, 50, 50, 0.4);
         </property>
        </spacer>
       </item>
-      <item row="8" column="1">
-       <widget class="QLineEdit" name="lineEdit_layers">
-        <property name="font">
-         <font>
-          <pointsize>18</pointsize>
-         </font>
-        </property>
-        <property name="inputMethodHints">
-         <set>Qt::ImhNone</set>
-        </property>
-        <property name="inputMask">
-         <string/>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0" rowspan="13">
+      <item row="3" column="0" rowspan="12">
        <spacer name="horizontalSpacer_10">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
@@ -888,14 +929,7 @@ box-shadow: 4px 4px 5px rgba(250, 50, 50, 0.4);
         </property>
        </spacer>
       </item>
-      <item row="5" column="1">
-       <widget class="QLabel" name="title_inform_2">
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600; color:#ffffff;&quot;&gt;Выберите какие задействовать нейроны&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="2" rowspan="14">
+      <item row="3" column="2" rowspan="13">
        <spacer name="verticalSpacer_18">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
@@ -908,64 +942,7 @@ box-shadow: 4px 4px 5px rgba(250, 50, 50, 0.4);
         </property>
        </spacer>
       </item>
-      <item row="7" column="1">
-       <widget class="QLabel" name="title_inform_3">
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600; color:#ffffff;&quot;&gt;Выберите какие задействовать слои&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
-      </item>
       <item row="10" column="1">
-       <widget class="QLineEdit" name="lineEdit_loading">
-        <property name="font">
-         <font>
-          <pointsize>18</pointsize>
-         </font>
-        </property>
-        <property name="inputMethodHints">
-         <set>Qt::ImhNone</set>
-        </property>
-        <property name="inputMask">
-         <string/>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0" colspan="3">
-       <widget class="QLabel" name="title_NN_5">
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt; font-weight:600; color:#fafafa;&quot;&gt;Neural Network&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="1">
-       <widget class="QLineEdit" name="lineEdit_neurons">
-        <property name="font">
-         <font>
-          <pointsize>18</pointsize>
-         </font>
-        </property>
-        <property name="inputMethodHints">
-         <set>Qt::ImhNone</set>
-        </property>
-        <property name="inputMask">
-         <string/>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="9" column="1">
-       <widget class="QLabel" name="title_inform_1">
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600; color:#ffffff;&quot;&gt;Введите количество слоёв&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
-      </item>
-      <item row="11" column="1">
        <widget class="QDialogButtonBox" name="buttonBox_2">
         <property name="enabled">
          <bool>true</bool>
@@ -997,26 +974,6 @@ font: 75 14pt &quot;MS Shell Dlg 2&quot;;</string>
         </property>
        </widget>
       </item>
-      <item row="0" column="0" colspan="3">
-       <spacer name="verticalSpacer_19">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="3" column="1">
-       <widget class="QLabel" name="title_inform">
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600; color:#ffffff;&quot;&gt;Вставьте путь к каталогу с данными&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
-      </item>
       <item row="2" column="0" colspan="3">
        <spacer name="verticalSpacer_20">
         <property name="orientation">
@@ -1030,15 +987,33 @@ font: 75 14pt &quot;MS Shell Dlg 2&quot;;</string>
         </property>
        </spacer>
       </item>
+      <item row="5" column="1">
+       <widget class="QLineEdit" name="colneural">
+        <property name="font">
+         <font>
+          <pointsize>18</pointsize>
+         </font>
+        </property>
+        <property name="inputMethodHints">
+         <set>Qt::ImhNone</set>
+        </property>
+        <property name="inputMask">
+         <string/>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </widget>
    <zorder>label</zorder>
-   <zorder>winauth</zorder>
-   <zorder>winreg</zorder>
    <zorder>winfirst</zorder>
    <zorder>winsecond</zorder>
    <zorder>wineducation</zorder>
+   <zorder>winreg</zorder>
+   <zorder>winauth</zorder>
   </widget>
  </widget>
  <resources/>

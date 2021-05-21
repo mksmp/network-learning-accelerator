@@ -5,7 +5,7 @@
 QSqlDatabase openDataBase()
 {
     QSqlDatabase  db;
-        db = QSqlDatabase::addDatabase("QPSQL7");
+        db = QSqlDatabase::addDatabase("QPSQL");
         db.setHostName("localhost");
         db.setDatabaseName("neuralnetworcbd");
         db.setUserName("postgres");
@@ -66,5 +66,4 @@ QString registration(std::string login, std::string password, std::string email)
         db.close();
         return "reg&0";
     }
-
 }
