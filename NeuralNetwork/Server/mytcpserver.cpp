@@ -4,7 +4,7 @@
 #include <QString>
 #include "database.h"
 #include "Neuro_Network_vector(variety).cpp"
-
+#include "Neuro_Network_vector_2nd_algorithm.cpp"
 
 MyTcpServer::~MyTcpServer()
 {
@@ -80,20 +80,25 @@ void MyTcpServer::slotClientDisconnected()
      int pos = message.find("&");
      flag = message.substr(0,pos);
      message.erase(0,pos+1);
-     if (flag == "neural") neuralpars(message);
+
+     if (flag == "alg1") alg1pars(message);
+     if (flag == "alg2") alg1pars(message);
+
      pos = message.find("&");
      login = message.substr(0,pos);
      message.erase(0,pos+1);
 
-     pos = message.find("&");
-     pass = message.substr(0,pos);
-     message.erase(0,pos+1);
      if (flag =="auth")
      {
+         pass = message;
          result = authorize(login, pass);
      }
      else if (flag == "reg")
      {
+         pos = message.find("&");
+         pass = message.substr(0,pos);
+         message.erase(0,pos+1);
+
          email = message;
          result = registration(login, pass, email);
      }
@@ -107,7 +112,7 @@ void MyTcpServer::slotClientDisconnected()
      return array;
  }
 
-  void MyTcpServer::neuralpars(std::string message)
+  void MyTcpServer::alg1pars(std::string message)
   {
       std::string colneurallayers;
 
@@ -119,7 +124,14 @@ void MyTcpServer::slotClientDisconnected()
       int collayers = std::stoi(message.substr(0,pos));
       message.erase(0,pos+1);
 
-      algoritm(colneurals, collayers);
-
-
+      alg1(colneurals, collayers);
   }
+
+  void MyTcpServer::alg2pars(std::string message)
+  {
+      int colneurals = std::stoi(message);
+
+
+      alg2(colneurals);
+  }
+

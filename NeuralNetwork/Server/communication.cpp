@@ -1,5 +1,4 @@
 #include "communication.h"
-#include <vector>
 #include <iostream>
 #include <random>
 using namespace std;
@@ -18,7 +17,6 @@ using namespace std;
                 lo[y][0] = lo[y][0] + li[x][0] * w[x][y];
             }
             lo[y][0] = 1 / (1 + exp(-1 * lo[y][0]));
-            //lo[y][0] = pow(tan(lo[y][0]), -1);
         }
     } // проход по слою
     void communication::findError(vector<vector<double>>& li, vector<vector<double>>& w, vector<vector<double>>& lo)

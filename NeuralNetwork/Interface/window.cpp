@@ -11,7 +11,9 @@ Window::Window(QWidget *parent)
     ui->winauth->setVisible(false);
     ui->winreg->setVisible(false);
     ui->winsecond->setVisible(false);
-    ui->wineducation->setVisible(false);
+    ui->winthird->setVisible(false);
+    ui->winalgoritm1->setVisible(false);
+    ui->winalgoritm2->setVisible(false);
 }
 
 Window::~Window()
@@ -35,7 +37,8 @@ void Window::on_OK_clicked()
 {
     QString login = ui->auth_login->text();
     QString password = ui->auth_password->text();
-    MyTcpClient();
+    Auth();
+    /*MyTcpClient();
     if (login !="" and password !="")
     {
         QString message = "auth&"+login+"&"+password;
@@ -43,8 +46,8 @@ void Window::on_OK_clicked()
     }
     else
     {
-        QMessageBox::critical(this, "ERROR", "login or password not entered!!!");
-    }
+        QMessageBox::critical(this, "Ошибка", "Поле логина или пароля пустое!!!");
+    }*/
 }
 
 void Window::on_Registretion_clicked()
@@ -59,6 +62,7 @@ void Window::on_buttonBox_accepted()
     QString email = ui->email->text();
     QString pass = ui->pass->text();
     QString conpass = ui->conpass->text();
+
     MyTcpClient();
     if (login !="" and pass !="" and conpass !="" and email !="" )
     {
@@ -72,10 +76,10 @@ void Window::on_buttonBox_accepted()
             }
         }
         else
-            QMessageBox::critical(this, "ERROR", "Password and Conpassword  unequal!!!");
+            QMessageBox::critical(this, "Ошибка", "Пароль и повторный ввод пароля разные!!!");
     }
     else
-        QMessageBox::critical(this, "ERROR", "login, password, conpassword or email not entered!!!");
+        QMessageBox::critical(this, "Ошибка", "Поля логин, пароль или почта пустые !!!");
 }
 
 void Window::on_buttonBox_rejected()
@@ -92,7 +96,7 @@ void Window::Auth()
 
 void Window::FailAuth()
 {
-    QMessageBox::critical(this, "ERROR", "Incorrect login or password!!!");
+    QMessageBox::critical(this, "Ошибка", "Неправельный логин или пароль!!!");
 }
 
 void Window::Reg()
@@ -103,7 +107,7 @@ void Window::Reg()
 
 void Window::FailReg()
 {
-     QMessageBox::critical(this, "ERROR", "ERROR");
+     QMessageBox::critical(this, "Ошибка", "Регистрация не произошла, повторите попытку позднее или напишите в техническую поддержку!");
 }
 
 bool Window::check(std::string pass)
@@ -131,7 +135,19 @@ bool Window::check(std::string pass)
 void Window::on_education_clicked()
 {
     ui->winsecond->setVisible(false);
-    ui->wineducation->setVisible(true);
+    ui->winthird->setVisible(true);
+}
+
+void Window::on_algoritm1_clicked()
+{
+    ui->winthird->setVisible(false);
+    ui->winalgoritm1->setVisible(true);
+}
+
+void Window::on_algoritm2_clicked()
+{
+    ui->winthird->setVisible(false);
+    ui->winalgoritm2->setVisible(true);
 }
 
 void Window::on_buttonBox_2_accepted()
@@ -142,13 +158,38 @@ void Window::on_buttonBox_2_accepted()
     MyTcpClient();
     if (colneurals !="" and collayers !="" and colneurallayers !="")
     {
-        QString message = "neural&"+colneurals+"&"+collayers+"&"+colneurallayers+"&";
+        QString message = "alg1&"+colneurals+"&"+collayers+"&"+colneurallayers;
         slot_send_to_server(message);
     }
     else
         QMessageBox::critical(this, "ERROR", "Есть пустые поля!!!");
 }
 
+void Window::on_buttonBox_2_rejected()
+{
+    ui->winalgoritm1->setVisible(false);
+    ui->winthird->setVisible(true);
+}
+
+void Window::on_buttonBox_3_rejected()
+{
+    ui->winalgoritm2->setVisible(false);
+    ui->winthird->setVisible(true);
+}
+
+void Window::on_buttonBox_3_accepted()
+{
+      QString colneurals = ui->colneurals->text();
+      MyTcpClient();
+      if (colneurals !="")
+      {
+          QString message = "alg2&"+colneurals;
+          slot_send_to_server(message);
+      }
+}
+
+
+/*//////////////////////////\\|***|MYTCPCLIENT|***|\\//////////////////////////////////////*/
 
     void Window::MyTcpClient()
     {
@@ -212,4 +253,4 @@ void Window::on_buttonBox_2_accepted()
         clientSocket->close();
     }
 
-
+/*//////////////////////////\\|***|MYTCPCLIENT|***|\\//////////////////////////////////////*/

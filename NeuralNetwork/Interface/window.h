@@ -33,6 +33,16 @@ private slots:
     void on_education_clicked();
     void on_buttonBox_2_accepted();
 
+    void on_algoritm1_clicked();
+
+    void on_algoritm2_clicked();
+
+    void on_buttonBox_2_rejected();
+
+    void on_buttonBox_3_rejected();
+
+    void on_buttonBox_3_accepted();
+
 public slots:
     void MyTcpClient();
     void slot_connected();
