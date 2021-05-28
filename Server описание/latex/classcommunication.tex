@@ -1,0 +1,343 @@
+\hypertarget{classcommunication}{}\doxysection{communication Class Reference}
+\label{classcommunication}\index{communication@{communication}}
+
+
+Класс, который отвечает за работу нейронной сети.  
+
+
+
+
+{\ttfamily \#include $<$communication.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcommunication_ae0aeee52f18603c89a6c231b27ab3515}{for\+Wards}} (vector$<$ vector$<$ double $>$$>$ \&li, vector$<$ vector$<$ double $>$$>$ \&w, vector$<$ vector$<$ double $>$$>$ \&lo)
+\begin{DoxyCompactList}\small\item\em Функция\+:проход по слою. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcommunication_a9d68c7972016f9ec541a19189e62245f}{find\+Error}} (vector$<$ vector$<$ double $>$$>$ \&li, vector$<$ vector$<$ double $>$$>$ \&w, vector$<$ vector$<$ double $>$$>$ \&lo)
+\begin{DoxyCompactList}\small\item\em Функция\+: нахождение ошибок слоя. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcommunication_aa706e686718f8b814bf24763b469494c}{back\+Wards}} (vector$<$ vector$<$ double $>$$>$ \&li, vector$<$ vector$<$ double $>$$>$ \&w, vector$<$ vector$<$ double $>$$>$ \&lo, double k)
+\begin{DoxyCompactList}\small\item\em Функция\+: изменение весов. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcommunication_a3ac9f057cdf78daeee35119c0c14b3b2}{get\+Task}} (vector$<$ vector$<$ double $>$$>$ \&li, vector$<$ vector$<$ double $>$$>$ \&test\+\_\+questionsdouble, vector$<$ vector$<$ double $>$$>$ \&test\+\_\+answers, vector$<$ vector$<$ double $>$$>$ \&idl, int i)
+\begin{DoxyCompactList}\small\item\em Функция\+: новый пример для нейросети. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classcommunication_a9671dcc0138a23a38a075a84658e22de}{fix\+Out\+Error}} (vector$<$ vector$<$ double $>$$>$ \&idl, vector$<$ vector$<$ double $>$$>$ \&n3)
+\begin{DoxyCompactList}\small\item\em Функция\+: нахождение отклонений. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classcommunication_acfa89a3e3d4a66d7a3d2613668a6d56a}\label{classcommunication_acfa89a3e3d4a66d7a3d2613668a6d56a}} 
+double {\bfseries Get\+Random\+Number} (double minimum, double maximum)
+\item 
+void \mbox{\hyperlink{classcommunication_adaff4048585397335e61ecb6c4d92052}{fillW}} (vector$<$ vector$<$ double $>$$>$ \&w)
+\begin{DoxyCompactList}\small\item\em Функция\+: рандомное заполнение весов. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcommunication_a54aed21db5c58b4fb2923d1ecfe5ef39}{read}} (vector$<$ vector$<$ double $>$$>$ \&test\+\_\+questionsdouble, vector$<$ vector$<$ double $>$$>$ \&test\+\_\+answers, int i)
+\begin{DoxyCompactList}\small\item\em Функция\+: ввод новых значений. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcommunication_a81f2b9a1c975c47b1bb3eaf485bafc23}{write}} (vector$<$ vector$<$ double $>$$>$ \&n3)
+\begin{DoxyCompactList}\small\item\em Функция\+: вывод значения. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Класс, который отвечает за работу нейронной сети. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcommunication_aa706e686718f8b814bf24763b469494c}\label{classcommunication_aa706e686718f8b814bf24763b469494c}} 
+\index{communication@{communication}!backWards@{backWards}}
+\index{backWards@{backWards}!communication@{communication}}
+\doxysubsubsection{\texorpdfstring{backWards()}{backWards()}}
+{\footnotesize\ttfamily void communication\+::back\+Wards (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ double $>$$>$ \&}]{li,  }\item[{vector$<$ vector$<$ double $>$$>$ \&}]{w,  }\item[{vector$<$ vector$<$ double $>$$>$ \&}]{lo,  }\item[{double}]{k }\end{DoxyParamCaption})}
+
+
+
+Функция\+: изменение весов. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector$<$vector$<$double$>$$>$} & li -\/ слои по середине. \\
+\hline
+{\em vector$<$vector$<$double$>$$>$} & w -\/ вес последнего слоя. \\
+\hline
+{\em vector$<$vector$<$double$>$$>$} & lo -\/ последний слой. \\
+\hline
+{\em double} & k -\/ коэффициент обучаемости.\\
+\hline
+\end{DoxyParams}
+Код функции выглядит следующим образом\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{classcommunication_a9d68c7972016f9ec541a19189e62245f}{communication::findError}}(vector<vector<double>>\& li, vector<vector<double>>\& w, vector<vector<double>>\& lo)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} wt = w.size() -\/ 1;}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} ht = w[0].size();}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x = 0; x < wt; x++)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        li[x][1] = 0;}
+\DoxyCodeLine{        \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} y = 0; y < ht; y++)}
+\DoxyCodeLine{        \{}
+\DoxyCodeLine{            li[x][1] = li[x][1] + w[x][y] * lo[y][1];}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        li[x][1] = li[x][1] * li[x][0] * (1 -\/ li[x][0]);}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{classcommunication_adaff4048585397335e61ecb6c4d92052}\label{classcommunication_adaff4048585397335e61ecb6c4d92052}} 
+\index{communication@{communication}!fillW@{fillW}}
+\index{fillW@{fillW}!communication@{communication}}
+\doxysubsubsection{\texorpdfstring{fillW()}{fillW()}}
+{\footnotesize\ttfamily void communication\+::fillW (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ double $>$$>$ \&}]{w }\end{DoxyParamCaption})}
+
+
+
+Функция\+: рандомное заполнение весов. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector$<$vector$<$double$>$$>$} & w -\/ вес первого слоя.\\
+\hline
+\end{DoxyParams}
+Код функции выглядит следующим образом\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{classcommunication_adaff4048585397335e61ecb6c4d92052}{communication::fillW}}(vector<vector<double>>\& w)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} wt = w.size();}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} ht = w[0].size();}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x = 0; x < wt; x++)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} y = 0; y < ht; y++)}
+\DoxyCodeLine{        \{}
+\DoxyCodeLine{            w[x][y] = GetRandomNumber(-\/0.5, 0.5);}
+\DoxyCodeLine{            \textcolor{keywordflow}{if} (w[x][y] > 1) w[x][y] = w[x][y] -\/ 1;}
+\DoxyCodeLine{            \textcolor{keywordflow}{if} (w[x][y] < -\/1) w[x][y] = w[x][y] + 1;}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{classcommunication_a9d68c7972016f9ec541a19189e62245f}\label{classcommunication_a9d68c7972016f9ec541a19189e62245f}} 
+\index{communication@{communication}!findError@{findError}}
+\index{findError@{findError}!communication@{communication}}
+\doxysubsubsection{\texorpdfstring{findError()}{findError()}}
+{\footnotesize\ttfamily void communication\+::find\+Error (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ double $>$$>$ \&}]{li,  }\item[{vector$<$ vector$<$ double $>$$>$ \&}]{w,  }\item[{vector$<$ vector$<$ double $>$$>$ \&}]{lo }\end{DoxyParamCaption})}
+
+
+
+Функция\+: нахождение ошибок слоя. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector$<$vector$<$double$>$$>$} & li -\/ слои по середине. \\
+\hline
+{\em vector$<$vector$<$double$>$$>$} & w -\/ вес последнего слоя. \\
+\hline
+{\em vector$<$vector$<$double$>$$>$} & lo -\/ последний слой.\\
+\hline
+\end{DoxyParams}
+Код функции выглядит следующим образом\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{classcommunication_a9d68c7972016f9ec541a19189e62245f}{communication::findError}}(vector<vector<double>>\& li, vector<vector<double>>\& w, vector<vector<double>>\& lo)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} wt = w.size() -\/ 1;}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} ht = w[0].size();}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x = 0; x < wt; x++)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        li[x][1] = 0;}
+\DoxyCodeLine{        \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} y = 0; y < ht; y++)}
+\DoxyCodeLine{        \{}
+\DoxyCodeLine{            li[x][1] = li[x][1] + w[x][y] * lo[y][1];}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        li[x][1] = li[x][1] * li[x][0] * (1 -\/ li[x][0]);}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{classcommunication_a9671dcc0138a23a38a075a84658e22de}\label{classcommunication_a9671dcc0138a23a38a075a84658e22de}} 
+\index{communication@{communication}!fixOutError@{fixOutError}}
+\index{fixOutError@{fixOutError}!communication@{communication}}
+\doxysubsubsection{\texorpdfstring{fixOutError()}{fixOutError()}}
+{\footnotesize\ttfamily double communication\+::fix\+Out\+Error (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ double $>$$>$ \&}]{idl,  }\item[{vector$<$ vector$<$ double $>$$>$ \&}]{n3 }\end{DoxyParamCaption})}
+
+
+
+Функция\+: нахождение отклонений. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector$<$vector$<$double$>$$>$} & idl -\/ результат, который нужно получить. \\
+\hline
+{\em vector$<$vector$<$double$>$$>$} & n3 -\/ последний слой.\\
+\hline
+\end{DoxyParams}
+Код функции выглядит следующим образом\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{double} \mbox{\hyperlink{classcommunication_a9671dcc0138a23a38a075a84658e22de}{communication::fixOutError}}(vector<vector<double>>\& idl, vector<vector<double>>\& n3)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordtype}{double} i = 0;}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} wt = idl.size();}
+\DoxyCodeLine{    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x = 0; x < wt; x++)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        i += idl[x][0] -\/ n3[x][0];}
+\DoxyCodeLine{        n3[x][1] = i;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} i;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{classcommunication_ae0aeee52f18603c89a6c231b27ab3515}\label{classcommunication_ae0aeee52f18603c89a6c231b27ab3515}} 
+\index{communication@{communication}!forWards@{forWards}}
+\index{forWards@{forWards}!communication@{communication}}
+\doxysubsubsection{\texorpdfstring{forWards()}{forWards()}}
+{\footnotesize\ttfamily void communication\+::for\+Wards (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ double $>$$>$ \&}]{li,  }\item[{vector$<$ vector$<$ double $>$$>$ \&}]{w,  }\item[{vector$<$ vector$<$ double $>$$>$ \&}]{lo }\end{DoxyParamCaption})}
+
+
+
+Функция\+:проход по слою. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector$<$vector$<$double$>$$>$} & li -\/ нулевой слой. \\
+\hline
+{\em vector$<$vector$<$double$>$$>$} & w -\/ вес первого слоя. \\
+\hline
+{\em vector$<$vector$<$double$>$$>$} & lo -\/ слои по середине.\\
+\hline
+\end{DoxyParams}
+Код функции выглядит следующим образом\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{classcommunication_ae0aeee52f18603c89a6c231b27ab3515}{communication::forWards}}(vector<vector<double>>\& li, vector<vector<double>>\& w, vector<vector<double>>\& lo)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} wt = w.size();}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} ht = w[0].size();}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} y = 0; y < ht; y++)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        lo[y][0] = 0;}
+\DoxyCodeLine{        \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x = 0; x < wt; x++)}
+\DoxyCodeLine{        \{}
+\DoxyCodeLine{            lo[y][0] = lo[y][0] + li[x][0] * w[x][y];}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        lo[y][0] = 1 / (1 + exp(-\/1 * lo[y][0]));}
+\DoxyCodeLine{        \textcolor{comment}{//lo[y][0] = pow(tan(lo[y][0]), -\/1);}}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{classcommunication_a3ac9f057cdf78daeee35119c0c14b3b2}\label{classcommunication_a3ac9f057cdf78daeee35119c0c14b3b2}} 
+\index{communication@{communication}!getTask@{getTask}}
+\index{getTask@{getTask}!communication@{communication}}
+\doxysubsubsection{\texorpdfstring{getTask()}{getTask()}}
+{\footnotesize\ttfamily void communication\+::get\+Task (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ double $>$$>$ \&}]{li,  }\item[{vector$<$ vector$<$ double $>$$>$ \&}]{test\+\_\+questionsdouble,  }\item[{vector$<$ vector$<$ double $>$$>$ \&}]{test\+\_\+answers,  }\item[{vector$<$ vector$<$ double $>$$>$ \&}]{idl,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Функция\+: новый пример для нейросети. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector$<$vector$<$double$>$$>$} & li -\/ нулевой слой. \\
+\hline
+{\em vector$<$vector$<$double$>$$>$} & test\+\_\+questionsdouble -\/ cлой для проверки. \\
+\hline
+{\em vector$<$vector$<$double$>$$>$} & test\+\_\+answers -\/ ответ, который нужно получить. \\
+\hline
+{\em vector$<$vector$<$double$>$$>$} & idl -\/ то, что нужно получить. \\
+\hline
+{\em int} & i.\\
+\hline
+\end{DoxyParams}
+Код функции выглядит следующим образом\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{classcommunication_a3ac9f057cdf78daeee35119c0c14b3b2}{communication::getTask}}(vector<vector<double>>\& li, vector<vector<double>>\& test\_questionsdouble, vector<vector<double>>\& test\_answers, vector<vector<double>>\& idl, \textcolor{keywordtype}{int} i)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < test\_questionsdouble[0].size(); j++)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        li[j][0] = test\_questionsdouble[i][j];}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < test\_answers[0].size(); j++)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        idl[j][0] = test\_answers[i][j];}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{classcommunication_a54aed21db5c58b4fb2923d1ecfe5ef39}\label{classcommunication_a54aed21db5c58b4fb2923d1ecfe5ef39}} 
+\index{communication@{communication}!read@{read}}
+\index{read@{read}!communication@{communication}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily void communication\+::read (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ double $>$$>$ \&}]{test\+\_\+questionsdouble,  }\item[{vector$<$ vector$<$ double $>$$>$ \&}]{test\+\_\+answers,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Функция\+: ввод новых значений. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector$<$vector$<$double$>$$>$} & test\+\_\+questionsdouble -\/ cлой для проверки. \\
+\hline
+{\em vector$<$vector$<$double$>$$>$} & test\+\_\+answers -\/ ответ, который нужно получить. \\
+\hline
+{\em int} & i.\\
+\hline
+\end{DoxyParams}
+Код функции выглядит следующим образом\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{classcommunication_a54aed21db5c58b4fb2923d1ecfe5ef39}{communication::read}}(vector<vector<double>>\& test\_questionsdouble, vector<vector<double>>\& test\_answers, \textcolor{keywordtype}{int} i)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    cout << \textcolor{stringliteral}{"{}вопрос тест"{}} << endl;}
+\DoxyCodeLine{    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 1; j < test\_questionsdouble[0].size() + 1; j++)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (j \% 3 == 0)}
+\DoxyCodeLine{        \{}
+\DoxyCodeLine{            cout << test\_questionsdouble[i][j -\/ 1] << endl;}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        \textcolor{keywordflow}{else}}
+\DoxyCodeLine{        \{}
+\DoxyCodeLine{            cout << test\_questionsdouble[i][j -\/ 1];}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    cout << endl;}
+\DoxyCodeLine{    cout << \textcolor{stringliteral}{"{}ответ тест"{}} << endl;}
+\DoxyCodeLine{    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < test\_answers[0].size(); j++)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        cout << test\_answers[i][j];}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{classcommunication_a81f2b9a1c975c47b1bb3eaf485bafc23}\label{classcommunication_a81f2b9a1c975c47b1bb3eaf485bafc23}} 
+\index{communication@{communication}!write@{write}}
+\index{write@{write}!communication@{communication}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily void communication\+::write (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ double $>$$>$ \&}]{n3 }\end{DoxyParamCaption})}
+
+
+
+Функция\+: вывод значения. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector$<$vector$<$double$>$$>$} & n3 -\/ последний слой. \begin{DoxyVerb}Код функции выглядит следующим образом:
+\end{DoxyVerb}
+ 
+\begin{DoxyCode}{1}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{classcommunication_a81f2b9a1c975c47b1bb3eaf485bafc23}{communication::write}}(vector<vector<double>>\& n3)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    cout << \textcolor{stringliteral}{"{}ответ реал"{}} << endl;}
+\DoxyCodeLine{    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < n3.size(); j++)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        cout << n3[j][0] << \textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    cout << endl;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+communication.\+h\item 
+communication.\+cpp\end{DoxyCompactItemize}
