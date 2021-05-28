@@ -1,189 +1,116 @@
-body, h1, h2, h3, h4, p, a {
-    margin: 0;
-    font-size: 100%; 
-    font-weight: normal;
-  }
-  
-  body {
-    font-family: 'Helvetica', 'Arial', sans-serif;
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
-  .header {
-    height: 50vh;
-    background-color: rgb(255, 255, 255);
-    background-image: url(https://www.lavorare.net/nuovo/wp-content/uploads/2018/11/project_management.jpg);
-    background-size: cover;
-    background-position: center;
-    text-align: center;
-  }
-  
-  .header-title {
-    font-size: 80px;
-    color: rgb(255, 255, 255);
-    text-transform: uppercase;
-    font-weight: 500;
-    margin: auto;
-  }
-  
-  .title {
-    font-size: 35px;
-    color: rgb(0, 0, 0);
-    text-align: center;
-  }
 
-  .overlay {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, .7);
-    display: flex;
-  }
-  
-  .content {
-    font-size: 0;
-    width: 790px;
-    margin: 30px auto 20px auto;
-  }
-   
-  .content2 {
-    font-size: 0;
-    width: 1250px;
-    margin: 30px auto 20px auto;
-  }
-  
-  .git-title {
-    text-align: center;
-    font-size: 24px;
-    font-weight: 500;
-    margin-bottom: 10px;
-  }
-  .git-content {
-      font-size: 0;
+  .navbar{
+    background:#F97300;
+   }
+   .nav-link , .navbar-brand{
+    color: #f4f4f4;
+    cursor: pointer;
+   }
+   .nav-link{
+    margin-right: 1em !important;
+    font-weight: bold;
+   }
+   .nav-link:hover{
+    background: #f4f4f4;
+    color: #f97300;
+   }
+   .navbar-collapse{
+    justify-content: flex-end;
+   }
+   .navbar-toggler{
+     background:#fff !important;
+   }
+   .navbar-collapse{
+    justify-content: flex-end;
+   }
+   .bg-dark{
+    background-color:#343a40!important
+    }
+    .bg-primary{
+    background-color:#343a40!important
+    }
+    .header{
+        background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/1400/d2e2b017587787.562bbedc7df16.jpg);
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+    }
+    .overlay{
+        min-height: 100%;
+        min-width: 100%;
+        left: 0;
+        top: 0;
+        background: rgba(244, 244, 244, 0.79);
+    }
+    .description{
+        position: absolute;
+        top: 30%;
+        margin: auto;
+        padding: 2em;
+    }
+    .description h1{
+     color:#F97300 ;
+    }
+    .description p{
+     color:#000;
+     font-size: 20px;
+     width: 50%;
+     line-height: 1.5;
+    }
+    .description button{
+     border:1px  solid #F97300;
+     background:#F97300;
+     color:#fff;
+    }
+    .team{
+      margin: 4em 0;
+      position: relative;  
+     }
+     .team h1{
+      color:#F97300;
+      margin: 2em; 
+     }
+     .team .item{
+      position: relative;
+     }
+     .team .des{
+      background: #F97300;
+      color: #fff;
+      font-size: 20px;
+      text-align: center;
+      border-bottom-left-radius: 0%;
+      transition:.3s ease-in-out;
+     }
+     .team .item:hover .des{
+      height: 100%;
+      background:#f973007d;
+      position: absolute;
+      width: 93%;
+      padding: 5em;
+      top: 0;
+      border-bottom-left-radius: 0;
+      font-weight: bold;
+     }
+     .blog{
+      margin: 4em 0;
+      position: relative; 
+     }
+     .blog h1{
+      color:#F97300;
+      margin: 2em; 
+     }
+     .blog .card{
+      box-shadow: 0 0 20px #ccc;
+     }
+     .blog .card img{
       width: 100%;
-      margin: 0 auto;
-  }
+      height: 12em;
+     }
+     .blog .card-title{
+      color:#F97300;
+       
+     }
+     .blog .card-body{
+      padding: 1em;
+     }
 
-  .project-info-content {
-    font-size: 0;
-    width: 1000px;
-    margin: auto;
-  }
-  
-  .card {
-    width: 350px;
-    margin-bottom: 60px;
-    padding: 45px 45px 70px;
-    display: inline-block;
-    margin-right: 90px;
-    box-shadow: 0px 0px 30px rgba(250, 50, 50, 0.4);
-    position:relative;
-    transition:.5s;
-    overflow:hidden;
-  }
-
-  .card-src {
-    width: 800px;
-    height: 70px;
-    margin-bottom: 60px;
-    padding: 45px 45px 70px;
-    box-shadow: 0px 0px 30px rgba(250, 50, 50, 0.4);
-  }
-
-  .card-info-first {
-    width: 500px;
-    height: 300px;
-    margin-bottom: 60px;
-    padding: 45px 45px 70px;
-    box-shadow: 0px 0px 20px rgba(250, 50, 50, 0.4);
-    border-radius: 0 40px
-  }
-
-  .card-project-info {
-    width: 1000px;
-    height: 500px;
-    margin-bottom: 60px;
-    padding: 45px 45px 70px;
-    box-shadow: 0px 0px 20px rgba(250, 50, 50, 0.4);
-    border-radius: 0 40px
-  }
-
-  .card-docker-info {
-    width: 1000px;
-    padding: 30px;
-    box-shadow: 0px 0px 20px rgba(250, 50, 50, 0.4);
-    border-radius: 0 40px
-  }
-  
-  .no-right-margin {
-    margin-right: 0px;
-  }
-  
-  .card-title {
-    font-size: 24px;
-    font-weight: 500;
-    margin-bottom: 10px;
-  }
-  
-  .card-text {
-    font-size: 20px;
-  }
-
-  .card-text-color {
-    font-size: 20px;
-    color:palevioletred;
-  }
-  
-  .card-image {
-    width: 100%;
-    margin-bottom: 25px;
-  }
-
-  .project-info {
-    text-align:center;
-    font-size:35px;
-    margin-bottom: 20px;
-  }
-
-  .footer {
-    height: 300px;
-    background-color: #000;
-    display: flex;
-  }
-
-  .contact-info {
-    text-align: center;
-    color: white;
-    font-size: 30px;
-    margin: auto;
-  }
-
-  .card::before,
-  .card::after {
-    position:absolute;
-    content: '';
-    width:100%;
-    height:100%;
-    background: palevioletred;
-    top: 0;
-    left: -100%;
-    opacity: .5;
-    transition: .3s;
-    z-index: -1;
-  }
-
-  .card::after{
-    opacity:1;
-    transition-delay: .1s;
-  }
-
-  .card:hover{
-    color: #fff;
-  }
-
-  .card:hover::before,
-  .card:hover::after {
-    left:0;
-  }
