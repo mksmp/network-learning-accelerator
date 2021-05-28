@@ -1,0 +1,332 @@
+\hypertarget{class_window}{}\doxysection{Window Class Reference}
+\label{class_window}\index{Window@{Window}}
+
+
+Класс, который отвечает за взаимодействие с пользователем.  
+
+
+
+
+{\ttfamily \#include $<$window.\+h$>$}
+
+Inheritance diagram for Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_window}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_window_a94ecff3c9b7c21e512ab71474ce0a5c6}{My\+Tcp\+Client}} ()
+\begin{DoxyCompactList}\small\item\em Создание нового подключения. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_window_a85f3630943a322f3f6fefdac800efa10}{slot\+\_\+connected}} ()
+\begin{DoxyCompactList}\small\item\em Соединение установлено. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_window_a96778a97899d7364c20f85fe0bd35157}{slot\+\_\+ready\+Read}} ()
+\begin{DoxyCompactList}\small\item\em Функция чтения сигналов сервера \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_window_a6b6e60bea9c2aeb3060a17060fcaae73}{slot\+\_\+send\+\_\+to\+\_\+server}} (QString message)
+\begin{DoxyCompactList}\small\item\em Отправка сообщение на сервер. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_window_af9202062ddd4f56142f155452a4b0912}{slot\+\_\+disconnected}} ()
+\begin{DoxyCompactList}\small\item\em Соединение разорвано. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_window_a677074dd99b1dbf030242da749907f81}{check}} (std\+::string pass)
+\begin{DoxyCompactList}\small\item\em Проверка пароля. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_window_a8c86e48ef3180201cc97cb928abd66ca}\label{class_window_a8c86e48ef3180201cc97cb928abd66ca}} 
+{\bfseries Window} (QWidget $\ast$parent=nullptr)
+\item 
+void \mbox{\hyperlink{class_window_a6745704a20896e5e9f6b3f5154a16149}{Auth}} ()
+\begin{DoxyCompactList}\small\item\em Функция успешного завершения авторизации. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_window_a145ae4d2987da6168a05c076b5012f62}{Fail\+Auth}} ()
+\begin{DoxyCompactList}\small\item\em Функция неудачного завершения авторизации. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_window_a79225437ab4c01135b56fe0a881f5ff8}{Reg}} ()
+\begin{DoxyCompactList}\small\item\em Функция успешного завершения регистрации. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_window_a94ef1690898d2ee7507bc6d5a3a678a8}{Fail\+Reg}} ()
+\begin{DoxyCompactList}\small\item\em Функция неудачного завершения регистрации. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Класс, который отвечает за взаимодействие с пользователем. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_window_a6745704a20896e5e9f6b3f5154a16149}\label{class_window_a6745704a20896e5e9f6b3f5154a16149}} 
+\index{Window@{Window}!Auth@{Auth}}
+\index{Auth@{Auth}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{Auth()}{Auth()}}
+{\footnotesize\ttfamily void Window\+::\+Auth (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Функция успешного завершения авторизации. 
+
+Данная функция реализует действия, которые будут происходить после успешного прохождения авторизации.
+
+Код функции выглядит следующим образом\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{class_window_a6745704a20896e5e9f6b3f5154a16149}{Window::Auth}}()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    ui-\/>winauth-\/>setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{    ui-\/>winsecond-\/>setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_window_a677074dd99b1dbf030242da749907f81}\label{class_window_a677074dd99b1dbf030242da749907f81}} 
+\index{Window@{Window}!check@{check}}
+\index{check@{check}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{check}{check}}
+{\footnotesize\ttfamily bool Window\+::check (\begin{DoxyParamCaption}\item[{std\+::string}]{pass }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Проверка пароля. 
+
+Данная функция проверяет пароль на содержание заглавных и пропсных букв, специальных знаков и цифр, а также на соответствие требуемой длине. В случае не выполнения какого-\/то из этих требования выводится сообщение.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pass} & -\/ пароль, который проходит проверку на соответствие требованиям.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, если пароль соответсвует требованям. 
+
+false, если пароль не соответсвует требованям.
+\end{DoxyReturn}
+Код функции выглядит следующим образом\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{bool} \mbox{\hyperlink{class_window_a677074dd99b1dbf030242da749907f81}{Window::check}}(std::string pass)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordflow}{if}(pass.size() > 8)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < pass.size(); i++)}
+\DoxyCodeLine{        \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{            \textcolor{keywordflow}{if} ( pass[i] < 48 or  pass[i] > 122)}
+\DoxyCodeLine{            \{}
+\DoxyCodeLine{                QMessageBox::critical(\textcolor{keyword}{this}, \textcolor{stringliteral}{"{}ERROR"{}}, \textcolor{stringliteral}{"{}The password can contain only letters of the Latin alphabet and numbers!!!"{}});}
+\DoxyCodeLine{                \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{            \}}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keywordflow}{else}}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        QMessageBox::critical(\textcolor{keyword}{this}, \textcolor{stringliteral}{"{}ERROR"{}}, \textcolor{stringliteral}{"{}Incorrect password!!! Password size is less than 8 characters!!!"{}});}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_window_a145ae4d2987da6168a05c076b5012f62}\label{class_window_a145ae4d2987da6168a05c076b5012f62}} 
+\index{Window@{Window}!FailAuth@{FailAuth}}
+\index{FailAuth@{FailAuth}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{FailAuth()}{FailAuth()}}
+{\footnotesize\ttfamily void Window\+::\+Fail\+Auth (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Функция неудачного завершения авторизации. 
+
+Данная функция реализует действия, которые будут происходить после неудачного прохождения авторизации.
+
+Код функции выглядит следующим образом\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{class_window_a145ae4d2987da6168a05c076b5012f62}{Window::FailAuth}}()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    QMessageBox::critical(\textcolor{keyword}{this}, \textcolor{stringliteral}{"{}ERROR"{}}, \textcolor{stringliteral}{"{}Incorrect login or password!!!"{}});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_window_a94ef1690898d2ee7507bc6d5a3a678a8}\label{class_window_a94ef1690898d2ee7507bc6d5a3a678a8}} 
+\index{Window@{Window}!FailReg@{FailReg}}
+\index{FailReg@{FailReg}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{FailReg()}{FailReg()}}
+{\footnotesize\ttfamily void Window\+::\+Fail\+Reg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Функция неудачного завершения регистрации. 
+
+Данная функция реализует действия, которые будут происходить после неудачного прохождения регистрации.
+
+Код функции выглядит следующим образом\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{class_window_a94ef1690898d2ee7507bc6d5a3a678a8}{Window::FailReg}}()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{     QMessageBox::critical(\textcolor{keyword}{this}, \textcolor{stringliteral}{"{}ERROR"{}}, \textcolor{stringliteral}{"{}ERROR"{}});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_window_a94ecff3c9b7c21e512ab71474ce0a5c6}\label{class_window_a94ecff3c9b7c21e512ab71474ce0a5c6}} 
+\index{Window@{Window}!MyTcpClient@{MyTcpClient}}
+\index{MyTcpClient@{MyTcpClient}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{MyTcpClient}{MyTcpClient}}
+{\footnotesize\ttfamily void Window\+::\+My\+Tcp\+Client (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Создание нового подключения. 
+
+Данная функция реализует процесс создание нового подключения
+
+Код функции выглядит следующим образом\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{class_window_a94ecff3c9b7c21e512ab71474ce0a5c6}{Window::MyTcpClient}}()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    clientSocket = \textcolor{keyword}{new} QTcpSocket(\textcolor{keyword}{this});}
+\DoxyCodeLine{    clientSocket-\/>connectToHost(\textcolor{stringliteral}{"{}127.0.0.1"{}}, 33333);}
+\DoxyCodeLine{    connect(clientSocket,SIGNAL(connected()),SLOT(\mbox{\hyperlink{class_window_a85f3630943a322f3f6fefdac800efa10}{slot\_connected}}()));}
+\DoxyCodeLine{    connect(clientSocket,SIGNAL(readyRead()),SLOT(\mbox{\hyperlink{class_window_a96778a97899d7364c20f85fe0bd35157}{slot\_readyRead}}()));}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_window_a79225437ab4c01135b56fe0a881f5ff8}\label{class_window_a79225437ab4c01135b56fe0a881f5ff8}} 
+\index{Window@{Window}!Reg@{Reg}}
+\index{Reg@{Reg}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{Reg()}{Reg()}}
+{\footnotesize\ttfamily void Window\+::\+Reg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Функция успешного завершения регистрации. 
+
+Данная функция реализует действия, которые будут происходить после удачного прохождения регистрации.
+
+Код функции выглядит следующим образом\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{class_window_a79225437ab4c01135b56fe0a881f5ff8}{Window::Reg}}()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    ui-\/>winreg-\/>setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{    ui-\/>winfirst-\/>setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_window_a85f3630943a322f3f6fefdac800efa10}\label{class_window_a85f3630943a322f3f6fefdac800efa10}} 
+\index{Window@{Window}!slot\_connected@{slot\_connected}}
+\index{slot\_connected@{slot\_connected}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{slot\_connected}{slot\_connected}}
+{\footnotesize\ttfamily void Window\+::slot\+\_\+connected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Соединение установлено. 
+
+Если соединение установлено, то будет выводиться сообщение.
+
+Код функции выглядит следующим образом\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{class_window_a85f3630943a322f3f6fefdac800efa10}{Window::slot\_connected}}()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    qDebug(\textcolor{stringliteral}{"{}Connected!!!"{}});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_window_af9202062ddd4f56142f155452a4b0912}\label{class_window_af9202062ddd4f56142f155452a4b0912}} 
+\index{Window@{Window}!slot\_disconnected@{slot\_disconnected}}
+\index{slot\_disconnected@{slot\_disconnected}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{slot\_disconnected}{slot\_disconnected}}
+{\footnotesize\ttfamily void Window\+::slot\+\_\+disconnected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Соединение разорвано. 
+
+Код функции выглядит следующим образом\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{class_window_af9202062ddd4f56142f155452a4b0912}{Window::slot\_disconnected}}()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    clientSocket-\/>close();}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_window_a96778a97899d7364c20f85fe0bd35157}\label{class_window_a96778a97899d7364c20f85fe0bd35157}} 
+\index{Window@{Window}!slot\_readyRead@{slot\_readyRead}}
+\index{slot\_readyRead@{slot\_readyRead}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{slot\_readyRead}{slot\_readyRead}}
+{\footnotesize\ttfamily void Window\+::slot\+\_\+ready\+Read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Функция чтения сигналов сервера 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & -\/ массив данных, который формирует сообщение. \\
+\hline
+{\em message} & -\/ сообщение, сфорированное из массива.\\
+\hline
+\end{DoxyParams}
+Код функции выглядит следующим образом\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{class_window_a96778a97899d7364c20f85fe0bd35157}{Window::slot\_readyRead}}()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    QByteArray array;}
+\DoxyCodeLine{    std::string message = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{while}(clientSocket-\/>bytesAvailable()>0)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        array = clientSocket-\/>readAll();}
+\DoxyCodeLine{        message += array.toStdString();}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (message == \textcolor{stringliteral}{"{}auth\&1"{}})}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        \mbox{\hyperlink{class_window_a6745704a20896e5e9f6b3f5154a16149}{Auth}}();}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (message == \textcolor{stringliteral}{"{}auth\&0"{}})}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        \mbox{\hyperlink{class_window_a145ae4d2987da6168a05c076b5012f62}{FailAuth}}();}
+\DoxyCodeLine{        qDebug() << \textcolor{stringliteral}{"{}fail auth"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (message == \textcolor{stringliteral}{"{}reg\&1"{}})}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        \mbox{\hyperlink{class_window_a79225437ab4c01135b56fe0a881f5ff8}{Reg}}();}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (message == \textcolor{stringliteral}{"{}reg\&0"{}})}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        qDebug() << \textcolor{stringliteral}{"{}fail reg"{}};}
+\DoxyCodeLine{        \mbox{\hyperlink{class_window_a94ef1690898d2ee7507bc6d5a3a678a8}{FailReg}}();}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keywordflow}{else} qDebug() << \textcolor{stringliteral}{"{}fail"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \mbox{\hyperlink{class_window_af9202062ddd4f56142f155452a4b0912}{slot\_disconnected}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_window_a6b6e60bea9c2aeb3060a17060fcaae73}\label{class_window_a6b6e60bea9c2aeb3060a17060fcaae73}} 
+\index{Window@{Window}!slot\_send\_to\_server@{slot\_send\_to\_server}}
+\index{slot\_send\_to\_server@{slot\_send\_to\_server}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{slot\_send\_to\_server}{slot\_send\_to\_server}}
+{\footnotesize\ttfamily void Window\+::slot\+\_\+send\+\_\+to\+\_\+server (\begin{DoxyParamCaption}\item[{QString}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Отправка сообщение на сервер. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & -\/ сообщение, в котором содержатся данные. \\
+\hline
+{\em array} & -\/ массив, в который доюавляется сообщение.\\
+\hline
+\end{DoxyParams}
+Код функции выглядит следующим образом\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{class_window_a6b6e60bea9c2aeb3060a17060fcaae73}{Window::slot\_send\_to\_server}}(QString message)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    QByteArray array;}
+\DoxyCodeLine{    array.append(message);}
+\DoxyCodeLine{    clientSocket-\/>write(array);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+window.\+h\item 
+window.\+cpp\end{DoxyCompactItemize}
