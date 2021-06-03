@@ -22,6 +22,7 @@ public:
     void FailAuth();
     void Reg();
     void FailReg();
+    void Report(QString data);
 
 private slots:
     void on_Authorization_clicked();
@@ -43,19 +44,21 @@ private slots:
 
     void on_buttonBox_3_accepted();
 
+    void on_cansel_clicked();
+
 public slots:
     void MyTcpClient();
     void slot_connected();
     void slot_readyRead();
     void slot_send_to_server(QString message);
     void slot_disconnected();
-    bool check(std::string pass);
+    bool check(std::string pass, std::string email);
 
 
 private:
     Ui::Window *ui;
     QTcpSocket *clientSocket;
     void proverca(QString message);
-
+    QString log;
 };
 #endif // WINDOW_H

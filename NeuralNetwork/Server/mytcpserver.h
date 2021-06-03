@@ -1,11 +1,10 @@
 #ifndef MYTCPSERVER_H
 #define MYTCPSERVER_H
+
 #include <QObject>
 #include <QTcpServer>
 #include <QTcpSocket>
-
 #include <QtNetwork>
-#include <QByteArray>
 #include <QDebug>
 
 class MyTcpServer : public QObject
@@ -24,7 +23,7 @@ private:
     int server_status;
     QMap<int,QTcpSocket *> SClients;
     QByteArray parsing(QByteArray array);
-    void alg1pars(std::string message);
-    void alg2pars(std::string message);
+    QString alg1pars(std::string message);
+    QString alg2pars(std::string message);
 };
 #endif // MYTCPSERVER_H

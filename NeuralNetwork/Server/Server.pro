@@ -10,11 +10,10 @@ CONFIG -= app_bundle
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        Neuro_Network_vector_2nd_algorithm.cpp \
+        algorithms.cpp \
         database.cpp \
         main.cpp \
         mytcpserver.cpp \
-        Neuro_Network_vector(variety).cpp \
         communication.cpp
 
 # Default rules for deployment.
@@ -23,6 +22,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    algorithms.h \
     database.h \
     mytcpserver.h \
     communication.h

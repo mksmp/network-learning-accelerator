@@ -3,22 +3,24 @@
 
 bool check(std::string pass)
 {
-    if(pass.size() > 8)
-    {
-        for (int i = 0; i < pass.size(); i++)
+    std::vector<std::string> truepass = {{"ABCDEFGHIKLMNOPQRSTVXYZ"}, {"abcdefghiklmnopqrstvxyz"}, {"1234567890"}, {"-_!@#$%^*<>?"}}; // разрешенные символы
+    if(pass.size() >= 8)
         {
-
-            if ( pass[i] < 48 or  pass[i] > 122)
+            for (int i = 0; i < pass.size(); i++)
             {
-                return false;
+
+                if ( (truepass[0].find(pass[i]) != std::string::npos) or (truepass[1].find(pass[i]) != std::string::npos) or (truepass[2].find(pass[i]) != std::string::npos) or (truepass[3].find(pass[i]) != std::string::npos) ) { }
+                else
+                {
+                    return false;
+                }
             }
+            return true;
         }
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+        else
+        {
+            return false;
+        }
 }
 
 bool check_of_length(std::string collayers, std::string colneurallayers)

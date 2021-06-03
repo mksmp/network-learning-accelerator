@@ -1,6 +1,8 @@
 #include "window.h"
 #include "ui_window.h"
 #include <QMessageBox>
+#include <QTableView>
+#include <cstring>
 
 Window::Window(QWidget *parent)
     : QMainWindow(parent)
@@ -14,6 +16,7 @@ Window::Window(QWidget *parent)
     ui->winthird->setVisible(false);
     ui->winalgoritm1->setVisible(false);
     ui->winalgoritm2->setVisible(false);
+    ui->winreport->setVisible(false);
 }
 
 Window::~Window()
@@ -35,7 +38,7 @@ void Window::on_Cancel_clicked()
 
 void Window::on_OK_clicked()
 {
-    QString login = ui->auth_login->text();
+    log = ui->auth_login->text();
     QString password = ui->auth_password->text();
     Auth();
     /*MyTcpClient();
@@ -68,8 +71,7 @@ void Window::on_buttonBox_accepted()
     {
         if (pass == conpass)
         {
-            std::string password = pass.toStdString();
-            if (check(password))
+            if (check(pass.toStdString(), email.toStdString()))
             {
                 QString message = "reg&"+login+"&"+pass+"&"+email;
                 slot_send_to_server(message);
@@ -110,24 +112,44 @@ void Window::FailReg()
      QMessageBox::critical(this, "Ошибка", "Регистрация не произошла, повторите попытку позднее или напишите в техническую поддержку!");
 }
 
-bool Window::check(std::string pass)
+void Window::Report(QString data)
 {
-    if(pass.size() > 8)
-    {
-        for (int i = 0; i < pass.size(); i++)
-        {
+    ui->winalgoritm1->setVisible(false);
+    ui->winreport->setVisible(true);
 
-            if ( pass[i] < 48 or  pass[i] > 122)
+    QTableView *table;
+
+    //ui->table
+}
+
+bool Window::check(std::string pass, std::string email)
+{
+    std::vector<std::string> truepass = {{"ABCDEFGHIKLMNOPQRSTVXYZ"}, {"abcdefghiklmnopqrstvxyz"}, {"1234567890"}, {"-_!@#$%^*<>?"}}; // разрешенные символы
+    if(email.find("@") != std::string::npos)
+    {
+        if(pass.size() >= 8)
+        {
+            for (int i = 0; i < pass.size(); i++)
             {
-                QMessageBox::critical(this, "ERROR", "The password can contain only letters of the Latin alphabet and numbers!!!");
-                return false;
+
+                if ( (truepass[0].find(pass[i]) != std::string::npos) or (truepass[1].find(pass[i]) != std::string::npos) or (truepass[2].find(pass[i]) != std::string::npos) or (truepass[3].find(pass[i]) != std::string::npos) ) { }
+                else
+                {
+                    QMessageBox::critical(this, "Ошибка", "Пароль недостаточной сложности для безопасности ваших данных или содержит запрещенные спец символы!\nМожно использовать только -_!@#$%^*<>? ");
+                    return false;
+                }
             }
+            return true;
         }
-        return true;
+        else
+        {
+            QMessageBox::critical(this, "Ошибка", "Слишком короткий пароль!!");
+            return false;
+        }
     }
     else
     {
-        QMessageBox::critical(this, "ERROR", "Incorrect password!!! Password size is less than 8 characters!!!");
+        QMessageBox::critical(this, "Ошибка", "Некорректная почта!!");
         return false;
     }
 }
@@ -152,13 +174,12 @@ void Window::on_algoritm2_clicked()
 
 void Window::on_buttonBox_2_accepted()
 {
-    QString colneurals = ui->colneural->text();
     QString collayers = ui->collayers->text();
     QString colneurallayers = ui->colneurallayers->text();
     MyTcpClient();
-    if (colneurals !="" and collayers !="" and colneurallayers !="")
+    if (collayers !="" and colneurallayers !="")
     {
-        QString message = "alg1&"+colneurals+"&"+collayers+"&"+colneurallayers;
+        QString message = "alg1&"+log+"&"+collayers+"&"+colneurallayers+"&";
         slot_send_to_server(message);
     }
     else
@@ -254,3 +275,15 @@ void Window::on_buttonBox_3_accepted()
     }
 
 /*//////////////////////////\\|***|MYTCPCLIENT|***|\\//////////////////////////////////////*/
+
+void Window::on_cansel_clicked()
+{
+    ui->winfirst->setVisible(true);
+    ui->winauth->setVisible(false);
+    ui->winreg->setVisible(false);
+    ui->winsecond->setVisible(false);
+    ui->winthird->setVisible(false);
+    ui->winalgoritm1->setVisible(false);
+    ui->winalgoritm2->setVisible(false);
+    ui->winreport->setVisible(false);
+}

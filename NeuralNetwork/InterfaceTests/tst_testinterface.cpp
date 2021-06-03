@@ -24,15 +24,12 @@ TestInterface::~TestInterface(){ }
 
 void TestInterface::test_function_check()
 {
-    bool result = true;
-    std::string pass = "";
-    while(pass.size() <= 8)
-    {
-        srand(time(NULL));
-        int r = rand();
-        if (r >= 48 and r <= 122) pass +=r;
-    }
-    QVERIFY(check(pass) == result);
+    bool result_true = true;
+    bool result_false = false;
+    std::string pass_true = "12345*#Nastia";
+    std::string pass_false = "0987??&&&";
+
+    QVERIFY(check(pass_true) == result_true and check(pass_false) == result_false);
 }
 
 void TestInterface::test_function_check_of_length()
