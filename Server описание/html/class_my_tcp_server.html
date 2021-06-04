@@ -135,7 +135,7 @@ Public Member Functions</h2></td></tr>
 <div class="line">    SClients.remove(<span class="keywordtype">id</span>);</div>
 <div class="line">    qDebug()&lt;&lt;QString::fromUtf8(<span class="stringliteral">&quot;Client is disconnected \n&quot;</span>);</div>
 <div class="line">}</div>
-<div class="ttc" id="aclass_my_tcp_server_html_a3e040c49dbefd65b9a58ab662fc9f7a2"><div class="ttname"><a href="class_my_tcp_server.html#a3e040c49dbefd65b9a58ab662fc9f7a2">MyTcpServer::slotClientDisconnected</a></div><div class="ttdeci">void slotClientDisconnected()</div><div class="ttdoc">Пользователь разорвал соединение.</div><div class="ttdef"><b>Definition:</b> mytcpserver.cpp:59</div></div>
+<div class="ttc" id="aclass_my_tcp_server_html_a3e040c49dbefd65b9a58ab662fc9f7a2"><div class="ttname"><a href="class_my_tcp_server.html#a3e040c49dbefd65b9a58ab662fc9f7a2">MyTcpServer::slotClientDisconnected</a></div><div class="ttdeci">void slotClientDisconnected()</div><div class="ttdoc">Пользователь разорвал соединение.</div><div class="ttdef"><b>Definition:</b> mytcpserver.cpp:56</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -171,14 +171,15 @@ Public Member Functions</h2></td></tr>
 <div class="line">        QTcpSocket* clientSocket=mTcpServer-&gt;nextPendingConnection();</div>
 <div class="line">        <span class="keywordtype">int</span> idusersocs=(int)clientSocket-&gt;socketDescriptor();</div>
 <div class="line">        SClients[idusersocs]=clientSocket;</div>
-<div class="line">       <span class="comment">// SClients[idusersocs]-&gt;write(&quot;Hello!\n&quot;);</span></div>
+<div class="line"> </div>
 <div class="line">        connect(SClients[idusersocs],&amp;QTcpSocket::readyRead,<span class="keyword">this</span>,&amp;<a class="code" href="class_my_tcp_server.html#ab4a64d2eab985d723090963f5c8a2882">MyTcpServer::slotServerRead</a>);</div>
 <div class="line">        connect(SClients[idusersocs],&amp;QTcpSocket::disconnected,<span class="keyword">this</span>,&amp;<a class="code" href="class_my_tcp_server.html#a3e040c49dbefd65b9a58ab662fc9f7a2">MyTcpServer::slotClientDisconnected</a>);</div>
+<div class="line"> </div>
 <div class="line">        qDebug()&lt;&lt;QString::fromUtf8(<span class="stringliteral">&quot;Client is connected \n&quot;</span>);</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aclass_my_tcp_server_html_a0ba7316ffe1a26c57fabde9e74b6c8dc"><div class="ttname"><a href="class_my_tcp_server.html#a0ba7316ffe1a26c57fabde9e74b6c8dc">MyTcpServer::slotNewConnection</a></div><div class="ttdeci">void slotNewConnection()</div><div class="ttdoc">Пользователь установил новое соединение.</div><div class="ttdef"><b>Definition:</b> mytcpserver.cpp:32</div></div>
-<div class="ttc" id="aclass_my_tcp_server_html_ab4a64d2eab985d723090963f5c8a2882"><div class="ttname"><a href="class_my_tcp_server.html#ab4a64d2eab985d723090963f5c8a2882">MyTcpServer::slotServerRead</a></div><div class="ttdeci">void slotServerRead()</div><div class="ttdoc">Чтение сервером.</div><div class="ttdef"><b>Definition:</b> mytcpserver.cpp:46</div></div>
+<div class="ttc" id="aclass_my_tcp_server_html_a0ba7316ffe1a26c57fabde9e74b6c8dc"><div class="ttname"><a href="class_my_tcp_server.html#a0ba7316ffe1a26c57fabde9e74b6c8dc">MyTcpServer::slotNewConnection</a></div><div class="ttdeci">void slotNewConnection()</div><div class="ttdoc">Пользователь установил новое соединение.</div><div class="ttdef"><b>Definition:</b> mytcpserver.cpp:28</div></div>
+<div class="ttc" id="aclass_my_tcp_server_html_ab4a64d2eab985d723090963f5c8a2882"><div class="ttname"><a href="class_my_tcp_server.html#ab4a64d2eab985d723090963f5c8a2882">MyTcpServer::slotServerRead</a></div><div class="ttdeci">void slotServerRead()</div><div class="ttdoc">Чтение сервером.</div><div class="ttdef"><b>Definition:</b> mytcpserver.cpp:43</div></div>
 </div><!-- fragment --> 
 </div>
 </div>

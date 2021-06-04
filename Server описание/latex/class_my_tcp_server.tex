@@ -81,9 +81,10 @@ void \mbox{\hyperlink{class_my_tcp_server_ab4a64d2eab985d723090963f5c8a2882}{slo
 \DoxyCodeLine{        QTcpSocket* clientSocket=mTcpServer-\/>nextPendingConnection();}
 \DoxyCodeLine{        \textcolor{keywordtype}{int} idusersocs=(int)clientSocket-\/>socketDescriptor();}
 \DoxyCodeLine{        SClients[idusersocs]=clientSocket;}
-\DoxyCodeLine{       \textcolor{comment}{// SClients[idusersocs]-\/>write("{}Hello!\(\backslash\)n"{});}}
+\DoxyCodeLine{}
 \DoxyCodeLine{        connect(SClients[idusersocs],\&QTcpSocket::readyRead,\textcolor{keyword}{this},\&\mbox{\hyperlink{class_my_tcp_server_ab4a64d2eab985d723090963f5c8a2882}{MyTcpServer::slotServerRead}});}
 \DoxyCodeLine{        connect(SClients[idusersocs],\&QTcpSocket::disconnected,\textcolor{keyword}{this},\&\mbox{\hyperlink{class_my_tcp_server_a3e040c49dbefd65b9a58ab662fc9f7a2}{MyTcpServer::slotClientDisconnected}});}
+\DoxyCodeLine{}
 \DoxyCodeLine{        qDebug()<<QString::fromUtf8(\textcolor{stringliteral}{"{}Client is connected \(\backslash\)n"{}});}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{\}}
