@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>NeuralNetworkWeb</title>
+  <link rel="icon" type="image" href="https://st.joinsport.io/team/1061573/logo/5ddf7f4a09a57_thumb.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js" integrity="sha384-5h4UG+6GOuV9qXh6HqOLwZMY4mnLPraeTrjT5v07o347pj6IkfuoASuGBhfDsp3d" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js" integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.esm.min.js" integrity="sha384-Eg5XYZrb+x0FMnsSAcaUNc6vJ/6B47jQvyhan3IGKcCfko9Hq6vS3s1PviSpNbdE" crossorigin="anonymous"></script>
+  <style>
+    .navbar{
+    background:#F97300;
+   }
+   .nav-link , .navbar-brand{
+    color: #f4f4f4;
+    cursor: pointer;
+   }
+   .nav-link{
+    margin-right: 1em !important;
+    font-weight: bold;
+   }
+   .nav-link:hover{
+    background: #f4f4f4;
+    color: #f97300;
+   }
+   .navbar-collapse{
+    justify-content: flex-end;
+   }
+   .navbar-toggler{
+     background:#fff !important;
+   }
+   .navbar-collapse{
+    justify-content: flex-end;
+   }
+   .bg-dark{
+    background-color:#343a40!important
+    }
+    .bg-primary{
+    background-color:#343a40!important
+    }
+    .header{
+        background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/1400/d2e2b017587787.562bbedc7df16.jpg);
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+    }
+    .overlay{
+        min-height: 100%;
+        min-width: 100%;
+        left: 0;
+        top: 0;
+        background: rgba(244, 244, 244, 0.79);
+    }
+    .description{
+        position: absolute;
+        top: 30%;
+        margin: auto;
+        padding: 2em;
+    }
+    .description h1{
+     color:#F97300 ;
+    }
+    .description p{
+     color:#000;
+     font-size: 20px;
+     width: 50%;
+     line-height: 1.5;
+    }
+    .description button{
+     border:1px  solid #F97300;
+     background:#F97300;
+     color:#fff;
+    }
+    .team{
+      margin: 4em 0;
+      position: relative;  
+     }
+     .team h1{
+      color:#F97300;
+      margin: 2em; 
+     }
+     .team .item{
+      position: relative;
+     }
+     .team .des{
+      background: #F97300;
+      color: #fff;
+      font-size: 20px;
+      text-align: center;
+      border-bottom-left-radius: 0%;
+      transition:.3s ease-in-out;
+     }
+     .team .item:hover .des{
+      height: 100%;
+      background:#f973007d;
+      position: absolute;
+      width: 93%;
+      padding: 5em;
+      top: 0;
+      border-bottom-left-radius: 0;
+      font-weight: bold;
+     }
+     .blog{
+      margin: 4em 0;
+      position: relative; 
+     }
+     .blog h1{
+      color:#F97300;
+      margin: 2em; 
+     }
+     .blog .card{
+      box-shadow: 0 0 20px #ccc;
+     }
+     .blog .card img{
+      width: 100%;
+      height: 12em;
+     }
+     .blog .card-title{
+      color:#F97300;
+       
+     }
+     .blog .card-body{
+      padding: 1em;
+     }
+  </style>
+</head>
+<body>
+  <a name="1"></a>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <a class="navbar-brand" style="font-weight: bold;">Neural Network Accelerator</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+ <div class="collapse navbar-collapse " id="navbarSupportedContent">
+      <ul class="navbar-nav mr-4">
+        <li class="nav-item">
+          <a class="nav-link"  href="#1">Главная</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  href="#2">Команда разработки</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="#3">О проекте</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="#4">Репозиторий</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="#5">Структура git</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="#6">Диаграммы</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="#7">Docker</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="#8">Интерфейс и сервер</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="#9">Документация</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="#10">Отчёты</a>
+        </li>
+      </ul>
+    </div>
+ </nav>
+<header class="header" style="height:100vh">
+  <div class="overlay">
+    <div class="container">
+      <div class="description">
+        <h3><font color="#F97300">
+         Приветствуем, это сайт проекта Neural Network Accelerator
+         <p>
+         Данный сайт является блогом проектной работы мини-группы "NeuralNetworkAccelerator" группы 201-351 Московского политехнического университета по учебной дисциплине "Технологии и методы программирования".
+         </p>
+         <button class="btn btn-outline-secondary"><a href="#2" style="text-decoration: none; color: #fff">Узнать больше</a></button>
+        </font></h3>
+       </div>
+    </div>
+  </div>
+</header>
+<a name="2"></a>
+<div class="team">
+  <div class="container">
+     <h1 class="text-center"><B>Команда разработчиков</B></h1>
+   <div class="row">
+    <div class="col-lg-3 col-md-3 col-sm-12 item">
+     <a href="https://github.com/mksmp/network-learning-accelerator/tree/Miloradov" target="_blank" style="text-decoration: none;">
+     <img align="center" src="https://static.tildacdn.com/tild3866-3034-4961-b766-306130306635/angular-2.png" class="img-fluid" alt="team">
+     <div class="des">
+       Владимир Милорадов
+      </div>
+     <span class="text-muted">С++ разработка. Тестировка Qt. Ведение web-сайта проекта</span>
+     </a>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-12 item">
+     <a href="https://github.com/mksmp/network-learning-accelerator/tree/Panin" target="_blank" style="text-decoration: none;"> 
+     <img align="center" src="https://static.tildacdn.com/tild3866-3034-4961-b766-306130306635/angular-2.png" class="img-fluid" alt="team">
+     <div class="des">
+        Максим Панин
+      </div>
+     <span class="text-muted">C++ разработка. Написание нейронки. Team lead</span>
+     </a>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-12 item">
+    <a href="https://github.com/mksmp/network-learning-accelerator/tree/Horoshev" target="_blank" style="text-decoration: none;"> 
+     <img align="center" src="https://static.tildacdn.com/tild3866-3034-4961-b766-306130306635/angular-2.png" class="img-fluid" alt="team">
+     <div class="des">
+       Юрий Хорошев 
+      </div>
+     <span class="text-muted">Qt разработка. Создание интерфейса</span>
+     </a>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-12 item">
+     <a href="https://github.com/mksmp/network-learning-accelerator/tree/Ganiev" target="_blank" style="text-decoration: none;"> 
+     <img align="center" src="https://static.tildacdn.com/tild3866-3034-4961-b766-306130306635/angular-2.png" class="img-fluid" alt="team">
+      <div class="des">
+       Динар Ганиев
+      </div>
+     <span class="text-muted">Qt разработка. Тестировка С++. Документоведение</span>
+     </a>
+    </div>
+   </div>
+  </div>
+ </div>
+ <a name="3"></a>
+  <H1 class="text-center" style="color: #f97300;"><B>Информация о проекте</B></H1>
+  <div class="card" style="width: 1000px; margin: auto;">
+    <h1 style="font-size: 27px; text-align: center;">Приложение, которое ускорит и автоматизирует процесс обучения нейронной сети</h1>
+    <p>Функции:</p>
+    <ol>
+      <li>Сбор необходимых данных из интернета или готового источника.</li>
+      <li>Автоматическое обучение по заданному алгоритму.</li>
+      <li>Тестирование и создание отчета о результатах обучения</li>
+    </ol>
+    <p>В процессе будет разработано:</p>
+    <ul>
+      <li>тестовая нейронная сеть;</li>
+      <li>алгоритм поиска и выборки информации из источников;</li>
+      <li>алгоритм обучения;</li>
+      <li>алгоритм тестирования, результатом которого будет отчет в графическом виде;</li>
+      <li>графический интерфейс приложения;</li>
+      <li>сайт с информацией о проделанной работе.</li>      
+    </ul>
+    <p>Информация будет дополняться по мере разработки.</p>
+  </div>
+  <BR>
+  <a name="4"></a>
+  <H1 style="text-align: center; color: #f97300;"><B>Репозиторий:</B></H1>
+  <h3 style="text-align: center; color: #f97300;"><a href="https://github.com/mksmp/network-learning-accelerator/tree/main" target="_blank">https://github.com/mksmp/network-learning-accelerator/tree/main</a></h3>
+  <a name="5"></a>
+  <h1 style="text-align: center; color: #f97300;"><B>Структура git репозитория</B></h1>
+  <img src="https://d.radikal.ru/d42/2102/3f/b3c63107d58f.png" style="max-width:80%; display: block; margin: auto;">
+  <a name="6"></a>
+  <h1 style="text-align: center; color: #f97300;"><B>Use-case диаграмма</B></h1>
+  <img src="https://c.radikal.ru/c19/2106/d0/7788020debdd.jpg" style="max-width:80%; display: block; margin: auto;">
+  <h1 style="text-align: center; color: #f97300;"><B>Диаграмма классов</B></h1>
+  <img src="https://b.radikal.ru/b17/2106/b1/8bb3d1de5614.jpg" style="max-width:80%; display: block; margin: auto;">
+  <a name="7"></a>
+    <div class="card" style="width: 1300px; margin: auto;">
+      <h1 class="card-title" style="text-align: center; color: #f97300;"><B>Работы по Docker</B></h1>
+      <h3 class="card-subtitle"><B>Милорадов Владимир:</B><BR> <a href="https://drive.google.com/drive/u/0/folders/1EM4KiCYSHKmYggaWAtgA12Shp0CqY1ZF" target="_blank">https://drive.google.com/drive/u/0/folders/1EM4KiCYSHKmYggaWAtgA12Shp0CqY1ZF</a></h3>
+      <h3 class="card-subtitle"><B>Панин Максим:</B><BR> <a href="https://drive.google.com/drive/folders/14IPRwN_Nfq2ehYbKsigeMv-ldLz9gfSj" target="_blank">https://drive.google.com/drive/folders/14IPRwN_Nfq2ehYbKsigeMv-ldLz9gfSj</a></h3>
+      <h3 class="card-subtitle"><B>Ганиев Динар:</B><BR> <a href="https://drive.google.com/drive/folders/13ylKNmFYQCNfHdn1nC3CxUmB1I81XSXq" target="_blank">https://drive.google.com/drive/folders/13ylKNmFYQCNfHdn1nC3CxUmB1I81XSXq</a></h3>
+      <h3 class="card-subtitle"><B>Хорошев Юрий:</B><BR> </h3>
+    </div>
+  </div>
+  <a name="8"></a>
+  <div style="width: 1300px; margin: 30px auto;">
+    <h1 style="text-align: center; color: #f97300;"><B>Интерфейс, сервер на Qt</B></h1>
+    <h3 style="text-align: center"><a href="https://github.com/mksmp/network-learning-accelerator/tree/Khoroshev/NeuralNetwork" target="_blank">https://github.com/mksmp/network-learning-accelerator/tree/Khoroshev/NeuralNetwork</a></h3>
+  </div>
+  <a name="9"></a>
+  <div style="width: 700px; margin: 30px auto;">
+    <h1 style="text-align: center; color: #f97300;"><B>Документация</B></h1>
+    <h3 style="text-align: center"><a href="https://github.com/mksmp/network-learning-accelerator/blob/Ganiev/%D0%A2%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B5%20%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%9D%D0%A1.docx" target="_blank">Техническое задание</a></h3>
+    <h3 style="text-align: center"><a href="https://github.com/mksmp/network-learning-accelerator/blob/Miloradov/%D0%A1%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D0%B8%D1%8F%20%D1%82%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.xlsx" target="_blank">Стратегия тестирования</a></h3>
+    <h3 style="text-align: center"><a href="https://github.com/mksmp/network-learning-accelerator/tree/Ganiev/Interface%20%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5" target="_blank">Описание интерфейса</a></h3>
+    <h3 style="text-align: center"><a href="https://github.com/mksmp/network-learning-accelerator/tree/Ganiev/Server%20%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5" target="_blank">Описание сервера</a></h3>
+    <h3 style="text-align: center"><a href="https://github.com/mksmp/network-learning-accelerator/tree/Ganiev/NeuralNetwork" target="_blank">Описание функций новой версии</a></h3>
+  </div>
+  <a name="10"></a>
+  <H1 style="text-align: center; color: #f97300;"><B>Отчёты о выполненной работе:</B></H1>
+  <div class="blog">
+    <div class="container">
+     <div class="row">
+      <div class="col-md-3 col-lg-3 col-sm-12">
+       <div class="card">
+        <div class="card-body">
+        <h4 class="card-title">Неделя 1</h4>
+         <p class="card-text">
+          Сформирована команда проекта, распределены роли, создан сайт проекта и git-репозиторий. Планируемые задачи: разработка структуры git.
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="col-md-3 col-lg-3 col-sm-12">
+       <div class="card">
+        <div class="card-body">
+           <h4 class="card-title">Неделя 2</h4>
+         <p class="card-text">
+          Разработана структура git-репозитория. Планируемая задача на неделю: разработать Use Case диаграмму и провести работу с Docker.
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="col-md-3 col-lg-3 col-sm-12">
+       <div class="card">
+        <div class="card-body">
+        <h4 class="card-title">Неделя 3</h4>
+         <p class="card-text"> 
+          Проведена работа в Docker с компилятором gcc. Разработана Use Case диаграмма. Планируемые задачи: провести работу с Qt.
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="col-md-3 col-lg-3 col-sm-12">
+        <div class="card">
+         <div class="card-body">
+            <h4 class="card-title">Неделя 4</h4>
+          <p class="card-text">
+            Юрий Хорошев разработал бета-версию Qt-интерфейса. Планируемые задачи: разработать диаграмму классов и продолжать разработку интерфейса.
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+      <BR>
+      <div class="row">
+        <div class="col-md-3 col-lg-3 col-sm-12">
+        <div class="card">
+         <div class="card-body">
+            <h4 class="card-title">Неделя 5</h4>
+          <p class="card-text">
+            Разработаны интерфейс приложения и многопользовательский сервер. Планируемые задачи: разработка диаграммы классов, доработка Frontend сайта.
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="col-md-3 col-lg-3 col-sm-12">
+        <div class="card">
+         <div class="card-body">
+            <h4 class="card-title">Неделя 6</h4>
+          <p class="card-text">
+            Сделаны клиент приложения и заглушки на сервер. Разработана диаграмма классов. Планируемая задача: создать базу данных.
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="col-md-3 col-lg-3 col-sm-12">
+        <div class="card">
+         <div class="card-body">
+            <h4 class="card-title">Неделя 7</h4>
+          <p class="card-text">
+            Создана база данных, написаны функциональные и нефункциональные критерии к ПО. Разрабатывается ТЗ.
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="col-md-3 col-lg-3 col-sm-12">
+        <div class="card">
+         <div class="card-body">
+            <h4 class="card-title">Неделя 8</h4>
+          <p class="card-text">
+            Разработаны ТЗ и диаграмма классов, создано подлючение базы данных к серверу. Планируемая задача: разработка нейронной сети.
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+      <BR>
+      <div class="row">
+        <div class="col-md-3 col-lg-3 col-sm-12">
+        <div class="card">
+         <div class="card-body">
+            <h4 class="card-title">Неделя 9</h4>
+          <p class="card-text">
+            Создана первая версия программы с одним алгоритмом обучения. Доработано ТЗ. Создана стратегия тестирования. Планируемые задачи: проведение тестов из стратегии; доработка программы.
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="col-md-3 col-lg-3 col-sm-12">
+        <div class="card">
+         <div class="card-body">
+            <h4 class="card-title">Неделя 10</h4>
+          <p class="card-text">
+            Написаны Unit-тесты. Проведено тестирование регистрации и авторизации. Разработаны все алгоритмы обучения нейронной сети и соответствующий интерфейс.
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="col-md-3 col-lg-3 col-sm-12">
+        <div class="card">
+         <div class="card-body">
+            <h4 class="card-title">Неделя 11</h4>
+          <p class="card-text">
+            Созданы блок-схемы алгоритмов обучения. Сервер размещён в Docker. Написана документация с описанием кода. Проведено тестирование области обучения нейронной сети. План: доработать функционал отчётов и исправить дефекты.
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="col-md-3 col-lg-3 col-sm-12">
+        <div class="card">
+         <div class="card-body">
+            <h4 class="card-title">Неделя 12</h4>
+          <p class="card-text">
+           
+          </p>
+         </div>
+        </div>
+       </div>
+     </div>
+    </div>
+   </div>
+  </div>
+<footer style="background-color: #fff">
+       <section class="mb-4">
+         <H2 style="text-align: center; color: #f97300;">Московский Политех. 2021</H2>
+         <H2 style="text-align: center; color: #f97300;">Разработка сайта - Милорадов Владимир</H2>
+         <H2 style="text-align: center; color: #f97300;">email: miloradovsinox@gmail.com</H2>
+       </section>
+</footer>
+</body>
+</html>
