@@ -28,8 +28,8 @@ void \mbox{\hyperlink{class_window_a6b6e60bea9c2aeb3060a17060fcaae73}{slot\+\_\+
 \begin{DoxyCompactList}\small\item\em Отправка сообщение на сервер. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_window_af9202062ddd4f56142f155452a4b0912}{slot\+\_\+disconnected}} ()
 \begin{DoxyCompactList}\small\item\em Соединение разорвано. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_window_a677074dd99b1dbf030242da749907f81}{check}} (std\+::string pass)
-\begin{DoxyCompactList}\small\item\em Проверка пароля. \end{DoxyCompactList}\end{DoxyCompactItemize}
+bool \mbox{\hyperlink{class_window_a94bfad8d17630824696236371a21188a}{check}} (std\+::string pass, std\+::string email)
+\begin{DoxyCompactList}\small\item\em Проверка правильности введенных данных. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -43,7 +43,9 @@ void \mbox{\hyperlink{class_window_a145ae4d2987da6168a05c076b5012f62}{Fail\+Auth
 void \mbox{\hyperlink{class_window_a79225437ab4c01135b56fe0a881f5ff8}{Reg}} ()
 \begin{DoxyCompactList}\small\item\em Функция успешного завершения регистрации. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_window_a94ef1690898d2ee7507bc6d5a3a678a8}{Fail\+Reg}} ()
-\begin{DoxyCompactList}\small\item\em Функция неудачного завершения регистрации. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Функция неудачного завершения регистрации. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_window_ad99c60a7e837966065aa776879e79117}{Report}} (QString data)
+\begin{DoxyCompactList}\small\item\em Функция показ отчета. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -71,48 +73,62 @@ void \mbox{\hyperlink{class_window_a94ef1690898d2ee7507bc6d5a3a678a8}{Fail\+Reg}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
- \mbox{\Hypertarget{class_window_a677074dd99b1dbf030242da749907f81}\label{class_window_a677074dd99b1dbf030242da749907f81}} 
+ \mbox{\Hypertarget{class_window_a94bfad8d17630824696236371a21188a}\label{class_window_a94bfad8d17630824696236371a21188a}} 
 \index{Window@{Window}!check@{check}}
 \index{check@{check}!Window@{Window}}
 \doxysubsubsection{\texorpdfstring{check}{check}}
-{\footnotesize\ttfamily bool Window\+::check (\begin{DoxyParamCaption}\item[{std\+::string}]{pass }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+{\footnotesize\ttfamily bool Window\+::check (\begin{DoxyParamCaption}\item[{std\+::string}]{pass,  }\item[{std\+::string}]{email }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
 
 
 
-Проверка пароля. 
+Проверка правильности введенных данных. 
 
-Данная функция проверяет пароль на содержание заглавных и пропсных букв, специальных знаков и цифр, а также на соответствие требуемой длине. В случае не выполнения какого-\/то из этих требования выводится сообщение.
+Данная функция проверяет почтовый адрес пользователь на наличие символа \char`\"{}@\char`\"{}. Также функция проверяет пароль на содержание заглавных и пропсных букв, специальных знаков и цифр, а также на соответствие требуемой длине.
 
 
 \begin{DoxyParams}{Parameters}
-{\em pass} & -\/ пароль, который проходит проверку на соответствие требованиям.\\
+{\em pass} & -\/ пароль, который проходит проверку на соответствие требованиям. \\
+\hline
+{\em email} & -\/ почтовый адрес, который проходит проверку на содержание символа \char`\"{}@\char`\"{}. \\
+\hline
+{\em truepass} & -\/ динамический массив, который содержит символы, которые должны обязательно использоваться при создании пароля.\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-true, если пароль соответсвует требованям. 
+true, если все введенные данные соответсвует требованям. 
 
-false, если пароль не соответсвует требованям.
+false, если данные не соответсвует требованям.
 \end{DoxyReturn}
 Код функции выглядит следующим образом\+: 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keywordtype}{bool} \mbox{\hyperlink{class_window_a677074dd99b1dbf030242da749907f81}{Window::check}}(std::string pass)}
+\DoxyCodeLine{\textcolor{keywordtype}{bool} \mbox{\hyperlink{class_window_a94bfad8d17630824696236371a21188a}{Window::check}}(std::string pass, std::string email)}
 \DoxyCodeLine{\{}
-\DoxyCodeLine{    \textcolor{keywordflow}{if}(pass.size() > 8)}
+\DoxyCodeLine{    std::vector<std::string> truepass = \{\{\textcolor{stringliteral}{"{}ABCDEFGHIKLMNOPQRSTVXYZ"{}}\}, \{\textcolor{stringliteral}{"{}abcdefghiklmnopqrstvxyz"{}}\}, \{\textcolor{stringliteral}{"{}1234567890"{}}\}, \{\textcolor{stringliteral}{"{}-\/\_!@\#\$\%\string^*<>?"{}}\}\}; \textcolor{comment}{// разрешенные символы}}
+\DoxyCodeLine{    \textcolor{keywordflow}{if}(email.find(\textcolor{stringliteral}{"{}@"{}}) != std::string::npos)}
 \DoxyCodeLine{    \{}
-\DoxyCodeLine{        \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < pass.size(); i++)}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(pass.size() >= 8)}
 \DoxyCodeLine{        \{}
-\DoxyCodeLine{}
-\DoxyCodeLine{            \textcolor{keywordflow}{if} ( pass[i] < 48 or  pass[i] > 122)}
+\DoxyCodeLine{            \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < pass.size(); i++)}
 \DoxyCodeLine{            \{}
-\DoxyCodeLine{                QMessageBox::critical(\textcolor{keyword}{this}, \textcolor{stringliteral}{"{}ERROR"{}}, \textcolor{stringliteral}{"{}The password can contain only letters of the Latin alphabet and numbers!!!"{}});}
-\DoxyCodeLine{                \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{}
+\DoxyCodeLine{                \textcolor{keywordflow}{if} ( (truepass[0].find(pass[i]) != std::string::npos) or (truepass[1].find(pass[i]) != std::string::npos) or (truepass[2].find(pass[i]) != std::string::npos) or (truepass[3].find(pass[i]) != std::string::npos) ) \{ \}}
+\DoxyCodeLine{                \textcolor{keywordflow}{else}}
+\DoxyCodeLine{                \{}
+\DoxyCodeLine{                    QMessageBox::critical(\textcolor{keyword}{this}, \textcolor{stringliteral}{"{}Ошибка"{}}, \textcolor{stringliteral}{"{}Пароль недостаточной сложности для безопасности ваших данных или содержит запрещенные спец символы!\(\backslash\)nМожно использовать только -\/\_!@\#\$\%\string^*<>? "{}});}
+\DoxyCodeLine{                    \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{                \}}
 \DoxyCodeLine{            \}}
+\DoxyCodeLine{            \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
 \DoxyCodeLine{        \}}
-\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{        \textcolor{keywordflow}{else}}
+\DoxyCodeLine{        \{}
+\DoxyCodeLine{            QMessageBox::critical(\textcolor{keyword}{this}, \textcolor{stringliteral}{"{}Ошибка"{}}, \textcolor{stringliteral}{"{}Слишком короткий пароль!!"{}});}
+\DoxyCodeLine{            \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{        \}}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{    \textcolor{keywordflow}{else}}
 \DoxyCodeLine{    \{}
-\DoxyCodeLine{        QMessageBox::critical(\textcolor{keyword}{this}, \textcolor{stringliteral}{"{}ERROR"{}}, \textcolor{stringliteral}{"{}Incorrect password!!! Password size is less than 8 characters!!!"{}});}
+\DoxyCodeLine{        QMessageBox::critical(\textcolor{keyword}{this}, \textcolor{stringliteral}{"{}Ошибка"{}}, \textcolor{stringliteral}{"{}Некорректная почта!!"{}});}
 \DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
 \DoxyCodeLine{    \}}
 \DoxyCodeLine{\}}
@@ -134,7 +150,7 @@ false, если пароль не соответсвует требованям.
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{class_window_a145ae4d2987da6168a05c076b5012f62}{Window::FailAuth}}()}
 \DoxyCodeLine{\{}
-\DoxyCodeLine{    QMessageBox::critical(\textcolor{keyword}{this}, \textcolor{stringliteral}{"{}ERROR"{}}, \textcolor{stringliteral}{"{}Incorrect login or password!!!"{}});}
+\DoxyCodeLine{    QMessageBox::critical(\textcolor{keyword}{this}, \textcolor{stringliteral}{"{}Ошибка"{}}, \textcolor{stringliteral}{"{}Неправельный логин или пароль!!!"{}});}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
@@ -154,7 +170,7 @@ false, если пароль не соответсвует требованям.
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{class_window_a94ef1690898d2ee7507bc6d5a3a678a8}{Window::FailReg}}()}
 \DoxyCodeLine{\{}
-\DoxyCodeLine{     QMessageBox::critical(\textcolor{keyword}{this}, \textcolor{stringliteral}{"{}ERROR"{}}, \textcolor{stringliteral}{"{}ERROR"{}});}
+\DoxyCodeLine{     QMessageBox::critical(\textcolor{keyword}{this}, \textcolor{stringliteral}{"{}Ошибка"{}}, \textcolor{stringliteral}{"{}Регистрация не произошла, повторите попытку позднее или напишите в техническую поддержку!"{}});}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
@@ -199,6 +215,36 @@ false, если пароль не соответсвует требованям.
 \DoxyCodeLine{\{}
 \DoxyCodeLine{    ui-\/>winreg-\/>setVisible(\textcolor{keyword}{false});}
 \DoxyCodeLine{    ui-\/>winfirst-\/>setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{class_window_ad99c60a7e837966065aa776879e79117}\label{class_window_ad99c60a7e837966065aa776879e79117}} 
+\index{Window@{Window}!Report@{Report}}
+\index{Report@{Report}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{Report()}{Report()}}
+{\footnotesize\ttfamily void Window\+::\+Report (\begin{DoxyParamCaption}\item[{QString}]{data }\end{DoxyParamCaption})}
+
+
+
+Функция показ отчета. 
+
+Данная функция реализует действия, которые нужны для предоставления отчета пользователю. Отчет предоставляется в виде таблицы.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & -\/ данные, из которых формируется отчет.\\
+\hline
+\end{DoxyParams}
+Код функции выглядит следующим образом\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{class_window_ad99c60a7e837966065aa776879e79117}{Window::Report}}(QString data)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    ui-\/>winalgoritm1-\/>setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{    ui-\/>winreport-\/>setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{}
+\DoxyCodeLine{    QTableView *table;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{comment}{//ui-\/>table}}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}

@@ -84,47 +84,61 @@ $(function() {
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="class_window.html">Window</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    ~<a class="code" href="class_window.html">Window</a>();</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_window.html#a6745704a20896e5e9f6b3f5154a16149">Auth</a>();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_window.html#a145ae4d2987da6168a05c076b5012f62">FailAuth</a>();</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_window.html#a79225437ab4c01135b56fe0a881f5ff8">Reg</a>();</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_window.html#a94ef1690898d2ee7507bc6d5a3a678a8">FailReg</a>();</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">private</span> slots:</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">void</span> on_Authorization_clicked();</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">void</span> on_Cancel_clicked();</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span> on_OK_clicked();</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">void</span> on_Registretion_clicked();</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">void</span> on_buttonBox_accepted();</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">void</span> on_buttonBox_rejected();</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">void</span> on_education_clicked();</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">void</span> on_buttonBox_2_accepted();</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword">public</span> slots:</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_window.html#a94ecff3c9b7c21e512ab71474ce0a5c6">MyTcpClient</a>();</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_window.html#a85f3630943a322f3f6fefdac800efa10">slot_connected</a>();</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_window.html#a96778a97899d7364c20f85fe0bd35157">slot_readyRead</a>();</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_window.html#a6b6e60bea9c2aeb3060a17060fcaae73">slot_send_to_server</a>(QString message);</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_window.html#af9202062ddd4f56142f155452a4b0912">slot_disconnected</a>();</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_window.html#a677074dd99b1dbf030242da749907f81">check</a>(std::string pass);</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160; </div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; </div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    Ui::Window *ui;</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    QTcpSocket *clientSocket;</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <span class="keywordtype">void</span> proverca(QString message);</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; </div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;};</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// WINDOW_H</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_window.html#a145ae4d2987da6168a05c076b5012f62">FailAuth</a>();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_window.html#a79225437ab4c01135b56fe0a881f5ff8">Reg</a>();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_window.html#a94ef1690898d2ee7507bc6d5a3a678a8">FailReg</a>();</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_window.html#ad99c60a7e837966065aa776879e79117">Report</a>(QString data);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword">private</span> slots:</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordtype">void</span> on_Authorization_clicked();</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordtype">void</span> on_Cancel_clicked();</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">void</span> on_OK_clicked();</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">void</span> on_Registretion_clicked();</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordtype">void</span> on_buttonBox_accepted();</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">void</span> on_buttonBox_rejected();</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordtype">void</span> on_education_clicked();</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">void</span> on_buttonBox_2_accepted();</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordtype">void</span> on_algoritm1_clicked();</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordtype">void</span> on_algoritm2_clicked();</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">void</span> on_buttonBox_2_rejected();</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordtype">void</span> on_buttonBox_3_rejected();</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">void</span> on_buttonBox_3_accepted();</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">void</span> on_cansel_clicked();</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="keyword">public</span> slots:</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_window.html#a94ecff3c9b7c21e512ab71474ce0a5c6">MyTcpClient</a>();</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_window.html#a85f3630943a322f3f6fefdac800efa10">slot_connected</a>();</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_window.html#a96778a97899d7364c20f85fe0bd35157">slot_readyRead</a>();</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_window.html#a6b6e60bea9c2aeb3060a17060fcaae73">slot_send_to_server</a>(QString message);</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_window.html#af9202062ddd4f56142f155452a4b0912">slot_disconnected</a>();</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_window.html#a94bfad8d17630824696236371a21188a">check</a>(std::string pass, std::string email);</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160; </div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160; </div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    Ui::Window *ui;</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    QTcpSocket *clientSocket;</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="keywordtype">void</span> proverca(QString message);</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    QString log;</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;};</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// WINDOW_H</span></div>
 <div class="ttc" id="aclass_window_html"><div class="ttname"><a href="class_window.html">Window</a></div><div class="ttdoc">Класс, который отвечает за взаимодействие с пользователем.</div><div class="ttdef"><b>Definition:</b> window.h:16</div></div>
-<div class="ttc" id="aclass_window_html_a145ae4d2987da6168a05c076b5012f62"><div class="ttname"><a href="class_window.html#a145ae4d2987da6168a05c076b5012f62">Window::FailAuth</a></div><div class="ttdeci">void FailAuth()</div><div class="ttdoc">Функция неудачного завершения авторизации.</div><div class="ttdef"><b>Definition:</b> window.cpp:93</div></div>
-<div class="ttc" id="aclass_window_html_a6745704a20896e5e9f6b3f5154a16149"><div class="ttname"><a href="class_window.html#a6745704a20896e5e9f6b3f5154a16149">Window::Auth</a></div><div class="ttdeci">void Auth()</div><div class="ttdoc">Функция успешного завершения авторизации.</div><div class="ttdef"><b>Definition:</b> window.cpp:87</div></div>
-<div class="ttc" id="aclass_window_html_a677074dd99b1dbf030242da749907f81"><div class="ttname"><a href="class_window.html#a677074dd99b1dbf030242da749907f81">Window::check</a></div><div class="ttdeci">bool check(std::string pass)</div><div class="ttdoc">Проверка пароля.</div><div class="ttdef"><b>Definition:</b> window.cpp:109</div></div>
-<div class="ttc" id="aclass_window_html_a6b6e60bea9c2aeb3060a17060fcaae73"><div class="ttname"><a href="class_window.html#a6b6e60bea9c2aeb3060a17060fcaae73">Window::slot_send_to_server</a></div><div class="ttdeci">void slot_send_to_server(QString message)</div><div class="ttdoc">Отправка сообщение на сервер.</div><div class="ttdef"><b>Definition:</b> window.cpp:203</div></div>
-<div class="ttc" id="aclass_window_html_a79225437ab4c01135b56fe0a881f5ff8"><div class="ttname"><a href="class_window.html#a79225437ab4c01135b56fe0a881f5ff8">Window::Reg</a></div><div class="ttdeci">void Reg()</div><div class="ttdoc">Функция успешного завершения регистрации.</div><div class="ttdef"><b>Definition:</b> window.cpp:98</div></div>
-<div class="ttc" id="aclass_window_html_a85f3630943a322f3f6fefdac800efa10"><div class="ttname"><a href="class_window.html#a85f3630943a322f3f6fefdac800efa10">Window::slot_connected</a></div><div class="ttdeci">void slot_connected()</div><div class="ttdoc">Соединение установлено.</div><div class="ttdef"><b>Definition:</b> window.cpp:161</div></div>
-<div class="ttc" id="aclass_window_html_a94ecff3c9b7c21e512ab71474ce0a5c6"><div class="ttname"><a href="class_window.html#a94ecff3c9b7c21e512ab71474ce0a5c6">Window::MyTcpClient</a></div><div class="ttdeci">void MyTcpClient()</div><div class="ttdoc">Создание нового подключения.</div><div class="ttdef"><b>Definition:</b> window.cpp:153</div></div>
-<div class="ttc" id="aclass_window_html_a94ef1690898d2ee7507bc6d5a3a678a8"><div class="ttname"><a href="class_window.html#a94ef1690898d2ee7507bc6d5a3a678a8">Window::FailReg</a></div><div class="ttdeci">void FailReg()</div><div class="ttdoc">Функция неудачного завершения регистрации.</div><div class="ttdef"><b>Definition:</b> window.cpp:104</div></div>
-<div class="ttc" id="aclass_window_html_a96778a97899d7364c20f85fe0bd35157"><div class="ttname"><a href="class_window.html#a96778a97899d7364c20f85fe0bd35157">Window::slot_readyRead</a></div><div class="ttdeci">void slot_readyRead()</div><div class="ttdoc">Функция чтения сигналов сервера</div><div class="ttdef"><b>Definition:</b> window.cpp:166</div></div>
-<div class="ttc" id="aclass_window_html_af9202062ddd4f56142f155452a4b0912"><div class="ttname"><a href="class_window.html#af9202062ddd4f56142f155452a4b0912">Window::slot_disconnected</a></div><div class="ttdeci">void slot_disconnected()</div><div class="ttdoc">Соединение разорвано.</div><div class="ttdef"><b>Definition:</b> window.cpp:210</div></div>
+<div class="ttc" id="aclass_window_html_a145ae4d2987da6168a05c076b5012f62"><div class="ttname"><a href="class_window.html#a145ae4d2987da6168a05c076b5012f62">Window::FailAuth</a></div><div class="ttdeci">void FailAuth()</div><div class="ttdoc">Функция неудачного завершения авторизации.</div><div class="ttdef"><b>Definition:</b> window.cpp:99</div></div>
+<div class="ttc" id="aclass_window_html_a6745704a20896e5e9f6b3f5154a16149"><div class="ttname"><a href="class_window.html#a6745704a20896e5e9f6b3f5154a16149">Window::Auth</a></div><div class="ttdeci">void Auth()</div><div class="ttdoc">Функция успешного завершения авторизации.</div><div class="ttdef"><b>Definition:</b> window.cpp:93</div></div>
+<div class="ttc" id="aclass_window_html_a6b6e60bea9c2aeb3060a17060fcaae73"><div class="ttname"><a href="class_window.html#a6b6e60bea9c2aeb3060a17060fcaae73">Window::slot_send_to_server</a></div><div class="ttdeci">void slot_send_to_server(QString message)</div><div class="ttdoc">Отправка сообщение на сервер.</div><div class="ttdef"><b>Definition:</b> window.cpp:265</div></div>
+<div class="ttc" id="aclass_window_html_a79225437ab4c01135b56fe0a881f5ff8"><div class="ttname"><a href="class_window.html#a79225437ab4c01135b56fe0a881f5ff8">Window::Reg</a></div><div class="ttdeci">void Reg()</div><div class="ttdoc">Функция успешного завершения регистрации.</div><div class="ttdef"><b>Definition:</b> window.cpp:104</div></div>
+<div class="ttc" id="aclass_window_html_a85f3630943a322f3f6fefdac800efa10"><div class="ttname"><a href="class_window.html#a85f3630943a322f3f6fefdac800efa10">Window::slot_connected</a></div><div class="ttdeci">void slot_connected()</div><div class="ttdoc">Соединение установлено.</div><div class="ttdef"><b>Definition:</b> window.cpp:223</div></div>
+<div class="ttc" id="aclass_window_html_a94bfad8d17630824696236371a21188a"><div class="ttname"><a href="class_window.html#a94bfad8d17630824696236371a21188a">Window::check</a></div><div class="ttdeci">bool check(std::string pass, std::string email)</div><div class="ttdoc">Проверка правильности введенных данных.</div><div class="ttdef"><b>Definition:</b> window.cpp:125</div></div>
+<div class="ttc" id="aclass_window_html_a94ecff3c9b7c21e512ab71474ce0a5c6"><div class="ttname"><a href="class_window.html#a94ecff3c9b7c21e512ab71474ce0a5c6">Window::MyTcpClient</a></div><div class="ttdeci">void MyTcpClient()</div><div class="ttdoc">Создание нового подключения.</div><div class="ttdef"><b>Definition:</b> window.cpp:215</div></div>
+<div class="ttc" id="aclass_window_html_a94ef1690898d2ee7507bc6d5a3a678a8"><div class="ttname"><a href="class_window.html#a94ef1690898d2ee7507bc6d5a3a678a8">Window::FailReg</a></div><div class="ttdeci">void FailReg()</div><div class="ttdoc">Функция неудачного завершения регистрации.</div><div class="ttdef"><b>Definition:</b> window.cpp:110</div></div>
+<div class="ttc" id="aclass_window_html_a96778a97899d7364c20f85fe0bd35157"><div class="ttname"><a href="class_window.html#a96778a97899d7364c20f85fe0bd35157">Window::slot_readyRead</a></div><div class="ttdeci">void slot_readyRead()</div><div class="ttdoc">Функция чтения сигналов сервера</div><div class="ttdef"><b>Definition:</b> window.cpp:228</div></div>
+<div class="ttc" id="aclass_window_html_ad99c60a7e837966065aa776879e79117"><div class="ttname"><a href="class_window.html#ad99c60a7e837966065aa776879e79117">Window::Report</a></div><div class="ttdeci">void Report(QString data)</div><div class="ttdoc">Функция показ отчета.</div><div class="ttdef"><b>Definition:</b> window.cpp:115</div></div>
+<div class="ttc" id="aclass_window_html_af9202062ddd4f56142f155452a4b0912"><div class="ttname"><a href="class_window.html#af9202062ddd4f56142f155452a4b0912">Window::slot_disconnected</a></div><div class="ttdeci">void slot_disconnected()</div><div class="ttdoc">Соединение разорвано.</div><div class="ttdef"><b>Definition:</b> window.cpp:272</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
