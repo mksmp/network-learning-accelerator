@@ -43,9 +43,8 @@ void Window::Auth()
 \code
 void Window::FailAuth()
 {
-    QMessageBox::critical(this, "ERROR", "Incorrect login or password!!!");
+    QMessageBox::critical(this, "Ошибка", "Неправельный логин или пароль!!!");
 }
-
 \endcode
 */
     void FailAuth();
@@ -73,11 +72,32 @@ void Window::Reg()
 \code
 void Window::FailReg()
 {
-     QMessageBox::critical(this, "ERROR", "ERROR");
+     QMessageBox::critical(this, "Ошибка", "Регистрация не произошла, повторите попытку позднее или напишите в техническую поддержку!");
 }
 \endcode
 */
     void FailReg();
+/*!
+\brief Функция показ отчета.
+
+Данная функция реализует действия, которые нужны для предоставления отчета пользователю. Отчет предоставляется в виде таблицы.
+
+\param data -  данные, из которых формируется отчет.
+
+Код функции выглядит следующим образом:
+\code
+void Window::Report(QString data)
+{
+    ui->winalgoritm1->setVisible(false);
+    ui->winreport->setVisible(true);
+
+    QTableView *table;
+
+    //ui->table
+}
+\endcode
+*/
+    void Report(QString data);
 
 private slots:
     void on_Authorization_clicked();
@@ -88,6 +108,18 @@ private slots:
     void on_buttonBox_rejected();
     void on_education_clicked();
     void on_buttonBox_2_accepted();
+
+    void on_algoritm1_clicked();
+
+    void on_algoritm2_clicked();
+
+    void on_buttonBox_2_rejected();
+
+    void on_buttonBox_3_rejected();
+
+    void on_buttonBox_3_accepted();
+
+    void on_cansel_clicked();
 
 public slots:
 /*!
@@ -104,7 +136,6 @@ public slots:
         connect(clientSocket,SIGNAL(connected()),SLOT(slot_connected()));
         connect(clientSocket,SIGNAL(readyRead()),SLOT(slot_readyRead()));
     }
-
 \endcode
 */
     void MyTcpClient();
@@ -169,78 +200,91 @@ public slots:
 \endcode
 */
     void slot_readyRead();
-    /*!
-    \brief Отправка сообщение на сервер.
+/*!
+\brief Отправка сообщение на сервер.
 
-    \param message - сообщение, в котором содержатся данные.
-    \param array - массив, в который доюавляется сообщение.
+\param message - сообщение, в котором содержатся данные.
+\param array - массив, в который доюавляется сообщение.
 
-    Код функции выглядит следующим образом:
-    \code
+Код функции выглядит следующим образом:
+\code
     void Window::slot_send_to_server(QString message)
     {
         QByteArray array;
         array.append(message);
         clientSocket->write(array);
     }
-    \endcode
-    */
+\endcode
+ */
     void slot_send_to_server(QString message);
-    /*!
-    \brief Соединение разорвано.
+/*!
+\brief Соединение разорвано.
 
-    Код функции выглядит следующим образом:
-    \code
+Код функции выглядит следующим образом:
+\code
     void Window::slot_disconnected()
     {
         clientSocket->close();
     }
-    \endcode
-    */
+\endcode
+*/
     void slot_disconnected();
 /*!
-\brief Проверка пароля.
+\brief Проверка правильности введенных данных.
 
-Данная функция проверяет пароль на содержание заглавных и пропсных букв, специальных знаков и цифр, а также на соответствие
-требуемой длине. В случае не выполнения какого-то из этих требования выводится сообщение.
+Данная функция проверяет почтовый адрес пользователь на наличие символа "@".
+Также функция проверяет пароль на содержание заглавных и пропсных букв, специальных знаков и цифр, а также на соответствие
+требуемой длине.
 
 \param pass - пароль, который проходит проверку на соответствие требованиям.
+\param email - почтовый адрес, который проходит проверку на содержание символа "@".
+\param truepass - динамический массив, который содержит символы, которые должны обязательно использоваться при создании пароля.
 
-\returns true, если пароль соответсвует требованям.
-\returns false, если пароль не соответсвует требованям.
+\returns true, если все введенные данные соответсвует требованям.
+\returns false, если данные не соответсвует требованям.
 
 Код функции выглядит следующим образом:
 \code
-bool Window::check(std::string pass)
+bool Window::check(std::string pass, std::string email)
 {
-    if(pass.size() > 8)
+    std::vector<std::string> truepass = {{"ABCDEFGHIKLMNOPQRSTVXYZ"}, {"abcdefghiklmnopqrstvxyz"}, {"1234567890"}, {"-_!@#$%^*<>?"}}; // разрешенные символы
+    if(email.find("@") != std::string::npos)
     {
-        for (int i = 0; i < pass.size(); i++)
+        if(pass.size() >= 8)
         {
-
-            if ( pass[i] < 48 or  pass[i] > 122)
+            for (int i = 0; i < pass.size(); i++)
             {
-                QMessageBox::critical(this, "ERROR", "The password can contain only letters of the Latin alphabet and numbers!!!");
-                return false;
+
+                if ( (truepass[0].find(pass[i]) != std::string::npos) or (truepass[1].find(pass[i]) != std::string::npos) or (truepass[2].find(pass[i]) != std::string::npos) or (truepass[3].find(pass[i]) != std::string::npos) ) { }
+                else
+                {
+                    QMessageBox::critical(this, "Ошибка", "Пароль недостаточной сложности для безопасности ваших данных или содержит запрещенные спец символы!\nМожно использовать только -_!@#$%^*<>? ");
+                    return false;
+                }
             }
+            return true;
         }
-        return true;
+        else
+        {
+            QMessageBox::critical(this, "Ошибка", "Слишком короткий пароль!!");
+            return false;
+        }
     }
     else
     {
-        QMessageBox::critical(this, "ERROR", "Incorrect password!!! Password size is less than 8 characters!!!");
+        QMessageBox::critical(this, "Ошибка", "Некорректная почта!!");
         return false;
     }
 }
 \endcode
 */
-    bool check(std::string pass);
+    bool check(std::string pass, std::string email);
 
 
 private:
     Ui::Window *ui;
     QTcpSocket *clientSocket;
     void proverca(QString message);
-
+    QString log;
 };
 #endif // WINDOW_H

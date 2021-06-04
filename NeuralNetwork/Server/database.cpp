@@ -67,3 +67,19 @@ QString registration(std::string login, std::string password, std::string email)
         return "reg&0";
     }
 }
+
+QString report_insert(std::vector<std::vector<std::string>> data, std::string login)
+{
+    QSqlDatabase  db = openDataBase();
+    QSqlQuery query = QSqlQuery(db);
+    std::string report = "";
+    for (int i = 0; i<=15; i++)
+    {
+        report +=  data[i][0] + ". " + data[i][1] + " " + data[i][2] + "\n";
+    }
+    query.prepare("insert into report (login_user, table_report) values (?, ?)");
+    query.addBindValue(QString::fromStdString(login));
+    query.addBindValue(QString::fromStdString(report));
+    query.exec();
+    db.close();
+}

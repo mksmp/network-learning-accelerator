@@ -1,6 +1,8 @@
 #include "window.h"
 #include "ui_window.h"
 #include <QMessageBox>
+#include <QTableView>
+#include <cstring>
 
 Window::Window(QWidget *parent)
     : QMainWindow(parent)
@@ -11,7 +13,10 @@ Window::Window(QWidget *parent)
     ui->winauth->setVisible(false);
     ui->winreg->setVisible(false);
     ui->winsecond->setVisible(false);
-    ui->wineducation->setVisible(false);
+    ui->winthird->setVisible(false);
+    ui->winalgoritm1->setVisible(false);
+    ui->winalgoritm2->setVisible(false);
+    ui->winreport->setVisible(false);
 }
 
 Window::~Window()
@@ -33,9 +38,10 @@ void Window::on_Cancel_clicked()
 
 void Window::on_OK_clicked()
 {
-    QString login = ui->auth_login->text();
+    log = ui->auth_login->text();
     QString password = ui->auth_password->text();
-    MyTcpClient();
+    Auth();
+    /*MyTcpClient();
     if (login !="" and password !="")
     {
         QString message = "auth&"+login+"&"+password;
@@ -43,8 +49,8 @@ void Window::on_OK_clicked()
     }
     else
     {
-        QMessageBox::critical(this, "ERROR", "login or password not entered!!!");
-    }
+        QMessageBox::critical(this, "Ошибка", "Поле логина или пароля пустое!!!");
+    }*/
 }
 
 void Window::on_Registretion_clicked()
@@ -59,23 +65,23 @@ void Window::on_buttonBox_accepted()
     QString email = ui->email->text();
     QString pass = ui->pass->text();
     QString conpass = ui->conpass->text();
+
     MyTcpClient();
     if (login !="" and pass !="" and conpass !="" and email !="" )
     {
         if (pass == conpass)
         {
-            std::string password = pass.toStdString();
-            if (check(password))
+            if (check(pass.toStdString(), email.toStdString()))
             {
                 QString message = "reg&"+login+"&"+pass+"&"+email;
                 slot_send_to_server(message);
             }
         }
         else
-            QMessageBox::critical(this, "ERROR", "Password and Conpassword  unequal!!!");
+            QMessageBox::critical(this, "Ошибка", "Пароль и повторный ввод пароля разные!!!");
     }
     else
-        QMessageBox::critical(this, "ERROR", "login, password, conpassword or email not entered!!!");
+        QMessageBox::critical(this, "Ошибка", "Поля логин, пароль или почта пустые !!!");
 }
 
 void Window::on_buttonBox_rejected()
@@ -92,7 +98,7 @@ void Window::Auth()
 
 void Window::FailAuth()
 {
-    QMessageBox::critical(this, "ERROR", "Incorrect login or password!!!");
+    QMessageBox::critical(this, "Ошибка", "Неправельный логин или пароль!!!");
 }
 
 void Window::Reg()
@@ -103,27 +109,47 @@ void Window::Reg()
 
 void Window::FailReg()
 {
-     QMessageBox::critical(this, "ERROR", "ERROR");
+     QMessageBox::critical(this, "Ошибка", "Регистрация не произошла, повторите попытку позднее или напишите в техническую поддержку!");
 }
 
-bool Window::check(std::string pass)
+void Window::Report(QString data)
 {
-    if(pass.size() > 8)
-    {
-        for (int i = 0; i < pass.size(); i++)
-        {
+    ui->winalgoritm1->setVisible(false);
+    ui->winreport->setVisible(true);
 
-            if ( pass[i] < 48 or  pass[i] > 122)
+    QTableView *table;
+
+    //ui->table
+}
+
+bool Window::check(std::string pass, std::string email)
+{
+    std::vector<std::string> truepass = {{"ABCDEFGHIKLMNOPQRSTVXYZ"}, {"abcdefghiklmnopqrstvxyz"}, {"1234567890"}, {"-_!@#$%^*<>?"}}; // разрешенные символы
+    if(email.find("@") != std::string::npos)
+    {
+        if(pass.size() >= 8)
+        {
+            for (int i = 0; i < pass.size(); i++)
             {
-                QMessageBox::critical(this, "ERROR", "The password can contain only letters of the Latin alphabet and numbers!!!");
-                return false;
+
+                if ( (truepass[0].find(pass[i]) != std::string::npos) or (truepass[1].find(pass[i]) != std::string::npos) or (truepass[2].find(pass[i]) != std::string::npos) or (truepass[3].find(pass[i]) != std::string::npos) ) { }
+                else
+                {
+                    QMessageBox::critical(this, "Ошибка", "Пароль недостаточной сложности для безопасности ваших данных или содержит запрещенные спец символы!\nМожно использовать только -_!@#$%^*<>? ");
+                    return false;
+                }
             }
+            return true;
         }
-        return true;
+        else
+        {
+            QMessageBox::critical(this, "Ошибка", "Слишком короткий пароль!!");
+            return false;
+        }
     }
     else
     {
-        QMessageBox::critical(this, "ERROR", "Incorrect password!!! Password size is less than 8 characters!!!");
+        QMessageBox::critical(this, "Ошибка", "Некорректная почта!!");
         return false;
     }
 }
@@ -131,24 +157,60 @@ bool Window::check(std::string pass)
 void Window::on_education_clicked()
 {
     ui->winsecond->setVisible(false);
-    ui->wineducation->setVisible(true);
+    ui->winthird->setVisible(true);
+}
+
+void Window::on_algoritm1_clicked()
+{
+    ui->winthird->setVisible(false);
+    ui->winalgoritm1->setVisible(true);
+}
+
+void Window::on_algoritm2_clicked()
+{
+    ui->winthird->setVisible(false);
+    ui->winalgoritm2->setVisible(true);
 }
 
 void Window::on_buttonBox_2_accepted()
 {
-    QString colneurals = ui->colneural->text();
     QString collayers = ui->collayers->text();
     QString colneurallayers = ui->colneurallayers->text();
     MyTcpClient();
-    if (colneurals !="" and collayers !="" and colneurallayers !="")
+    if (collayers !="" and colneurallayers !="")
     {
-        QString message = "neural&"+colneurals+"&"+collayers+"&"+colneurallayers+"&";
+        QString message = "alg1&"+log+"&"+collayers+"&"+colneurallayers+"&";
         slot_send_to_server(message);
     }
     else
         QMessageBox::critical(this, "ERROR", "Есть пустые поля!!!");
 }
 
+void Window::on_buttonBox_2_rejected()
+{
+    ui->winalgoritm1->setVisible(false);
+    ui->winthird->setVisible(true);
+}
+
+void Window::on_buttonBox_3_rejected()
+{
+    ui->winalgoritm2->setVisible(false);
+    ui->winthird->setVisible(true);
+}
+
+void Window::on_buttonBox_3_accepted()
+{
+      QString colneurals = ui->colneurals->text();
+      MyTcpClient();
+      if (colneurals !="")
+      {
+          QString message = "alg2&"+colneurals;
+          slot_send_to_server(message);
+      }
+}
+
+
+/*//////////////////////////\\|***|MYTCPCLIENT|***|\\//////////////////////////////////////*/
 
     void Window::MyTcpClient()
     {
@@ -212,4 +274,16 @@ void Window::on_buttonBox_2_accepted()
         clientSocket->close();
     }
 
+/*//////////////////////////\\|***|MYTCPCLIENT|***|\\//////////////////////////////////////*/
 
+void Window::on_cansel_clicked()
+{
+    ui->winfirst->setVisible(true);
+    ui->winauth->setVisible(false);
+    ui->winreg->setVisible(false);
+    ui->winsecond->setVisible(false);
+    ui->winthird->setVisible(false);
+    ui->winalgoritm1->setVisible(false);
+    ui->winalgoritm2->setVisible(false);
+    ui->winreport->setVisible(false);
+}

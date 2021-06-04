@@ -1,10 +1,6 @@
 #include "mytcpserver.h"
-#include <QDebug>
-#include <QCoreApplication>
-#include <QString>
 #include "database.h"
-#include "Neuro_Network_vector(variety).cpp"
-
+#include "algorithms.h"
 
 MyTcpServer::~MyTcpServer()
 {
@@ -36,9 +32,10 @@ void MyTcpServer::slotNewConnection()
         QTcpSocket* clientSocket=mTcpServer->nextPendingConnection();
         int idusersocs=(int)clientSocket->socketDescriptor();
         SClients[idusersocs]=clientSocket;
-       // SClients[idusersocs]->write("Hello!\n");
+
         connect(SClients[idusersocs],&QTcpSocket::readyRead,this,&MyTcpServer::slotServerRead);
         connect(SClients[idusersocs],&QTcpSocket::disconnected,this,&MyTcpServer::slotClientDisconnected);
+
         qDebug()<<QString::fromUtf8("Client is connected \n");
     }
 }
@@ -80,20 +77,25 @@ void MyTcpServer::slotClientDisconnected()
      int pos = message.find("&");
      flag = message.substr(0,pos);
      message.erase(0,pos+1);
-     if (flag == "neural") neuralpars(message);
+
      pos = message.find("&");
      login = message.substr(0,pos);
      message.erase(0,pos+1);
 
-     pos = message.find("&");
-     pass = message.substr(0,pos);
-     message.erase(0,pos+1);
+     if (flag == "alg1") result = alg1pars(message);
+     if (flag == "alg2") result = alg2pars(message);
+
      if (flag =="auth")
      {
+         pass = message;
          result = authorize(login, pass);
      }
      else if (flag == "reg")
      {
+         pos = message.find("&");
+         pass = message.substr(0,pos);
+         message.erase(0,pos+1);
+
          email = message;
          result = registration(login, pass, email);
      }
@@ -107,19 +109,41 @@ void MyTcpServer::slotClientDisconnected()
      return array;
  }
 
-  void MyTcpServer::neuralpars(std::string message)
+  QString MyTcpServer::alg1pars(std::string message)
   {
-      std::string colneurallayers;
+      vector<int> colneurallayers;
 
       int pos = message.find("&");
-      int colneurals = std::stoi(message.substr(0,pos));
-      message.erase(0,pos+1);
-
-      pos = message.find("&");
       int collayers = std::stoi(message.substr(0,pos));
       message.erase(0,pos+1);
+      while (message != "")
+      {
+          pos = message.find("&");
+          colneurallayers.push_back(std::stoi(message.substr(0,pos)));
+          message.erase(0,pos+1);
+      }
 
-      algoritm(colneurals, collayers);
 
-
+      vector<vector<std::string>> report = alg1(collayers, colneurallayers);
+      QString result = "";
+      for (int i = 0; i<=15; i++)
+      {
+          result +=  QString::fromStdString(report[i][0] + ". " + report[i][1] + " " + report[i][2] + "\n");
+      }
+      return result;
   }
+
+  QString MyTcpServer::alg2pars(std::string message)
+  {
+      int colneurals = std::stoi(message);
+
+      QString result = "";
+      vector<vector<std::string>> report = alg2(colneurals);
+
+      for (int i = 0; i<=15; i++)
+      {
+          result +=  QString::fromStdString(report[i][0] + ". " + report[i][1] + " " + report[i][2] + "\n");
+      }
+      return result;
+  }
+

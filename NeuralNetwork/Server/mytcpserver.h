@@ -1,11 +1,10 @@
 #ifndef MYTCPSERVER_H
 #define MYTCPSERVER_H
+
 #include <QObject>
 #include <QTcpServer>
 #include <QTcpSocket>
-
 #include <QtNetwork>
-#include <QByteArray>
 #include <QDebug>
 /*!
 \brief Класс, который отвечает за взаимодействие сервера и пользователем.
@@ -31,9 +30,10 @@ void MyTcpServer::slotNewConnection()
         QTcpSocket* clientSocket=mTcpServer->nextPendingConnection();
         int idusersocs=(int)clientSocket->socketDescriptor();
         SClients[idusersocs]=clientSocket;
-       // SClients[idusersocs]->write("Hello!\n");
+
         connect(SClients[idusersocs],&QTcpSocket::readyRead,this,&MyTcpServer::slotServerRead);
         connect(SClients[idusersocs],&QTcpSocket::disconnected,this,&MyTcpServer::slotClientDisconnected);
+
         qDebug()<<QString::fromUtf8("Client is connected \n");
     }
 }
@@ -84,6 +84,7 @@ private:
     int server_status;
     QMap<int,QTcpSocket *> SClients;
     QByteArray parsing(QByteArray array);
-    void neuralpars(std::string message);
+    QString alg1pars(std::string message);
+    QString alg2pars(std::string message);
 };
 #endif // MYTCPSERVER_H

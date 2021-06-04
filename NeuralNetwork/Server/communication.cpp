@@ -1,8 +1,5 @@
 #include "communication.h"
-#include <vector>
-#include <iostream>
-#include <random>
-using namespace std;
+
     communication::communication() {}
     communication::~communication() {}
     void communication::forWards(vector<vector<double>>& li, vector<vector<double>>& w, vector<vector<double>>& lo)
@@ -18,7 +15,6 @@ using namespace std;
                 lo[y][0] = lo[y][0] + li[x][0] * w[x][y];
             }
             lo[y][0] = 1 / (1 + exp(-1 * lo[y][0]));
-            //lo[y][0] = pow(tan(lo[y][0]), -1);
         }
     } // проход по слою
     void communication::findError(vector<vector<double>>& li, vector<vector<double>>& w, vector<vector<double>>& lo)
@@ -97,32 +93,32 @@ using namespace std;
     } // рандом весов
     void communication::read(vector<vector<double>>& test_questionsdouble, vector<vector<double>>& test_answers, int i)
     {
-        cout << "вопрос тест" << endl;
+        std::cout << "вопрос тест" << std::endl;
         for (int j = 1; j < test_questionsdouble[0].size() + 1; j++)
         {
             if (j % 3 == 0)
             {
-                cout << test_questionsdouble[i][j - 1] << endl;
+                std::cout << test_questionsdouble[i][j - 1] << std::endl;
             }
             else
             {
-                cout << test_questionsdouble[i][j - 1];
+                std::cout << test_questionsdouble[i][j - 1];
             }
         }
-        cout << endl;
-        cout << "ответ тест" << endl;
+        std::cout << std::endl;
+        std::cout << "ответ тест" << std::endl;
         for (int j = 0; j < test_answers[0].size(); j++)
         {
-            cout << test_answers[i][j];
+            std::cout << test_answers[i][j];
         }
     } // вести новые значения
     void communication::write(vector<vector<double>>& n3)
     {
-        cout << "ответ реал" << endl;
+        std::cout << "ответ реал" << std::endl;
         for (int j = 0; j < n3.size(); j++)
         {
-            cout << n3[j][0] << " ";
+            std::cout << n3[j][0] << " ";
         }
-        cout << endl;
+        std::cout << std::endl;
     } // вывод значения
 
