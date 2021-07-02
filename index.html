@@ -10,6 +10,50 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js" integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.esm.min.js" integrity="sha384-Eg5XYZrb+x0FMnsSAcaUNc6vJ/6B47jQvyhan3IGKcCfko9Hq6vS3s1PviSpNbdE" crossorigin="anonymous"></script>
   <style>
+        .loader_bg {
+      position: fixed;
+      z-index: 999999;
+      background: #fff;
+      width: 100%;
+      height: 100%;
+    }
+    .loader{
+      border: 0 solid transparent;
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      position: absolute;
+      top: calc(50vh - 75px);
+      left: calc(50vw - 75px);
+    }
+    .loader:before , .loader:after{
+      content: ' ';
+      border: 1em solid #ff5733;
+      border-radius: 50%;
+      width: inherit;
+      height: inherit;
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation: loader 1.5s linear infinite;
+      opacity: 0; 
+    }
+    .loader:before{
+      animation-delay: .5s;
+    }
+    @keyframes loader{
+      0%{
+        transform: scale(0);
+        opacity: 0;
+      }
+      50%{
+        opacity: 1;
+      }
+      100%{
+        transform: scale(1);
+        opacity: 0;
+      }
+    }
     .navbar{
     background:#F97300;
    }
@@ -127,6 +171,11 @@
   </style>
 </head>
 <body>
+  <div class="loader_bg">
+    <div class="loader">
+      <H1 style="margin-top: 150px;">Loading</H1>
+    </div>
+  </div>
   <a name="1"></a>
   <nav class="navbar navbar-expand-lg fixed-top">
     <a class="navbar-brand" style="font-weight: bold;">Neural Network Accelerator</a>
@@ -259,6 +308,7 @@
   <img src="https://c.radikal.ru/c19/2106/d0/7788020debdd.jpg" style="max-width:80%; display: block; margin: auto;">
   <h1 style="text-align: center; color: #f97300;"><B>Диаграмма классов</B></h1>
   <img src="https://b.radikal.ru/b17/2106/b1/8bb3d1de5614.jpg" style="max-width:80%; display: block; margin: auto;">
+  <BR>
   <a name="7"></a>
     <div class="card" style="width: 1300px; margin: auto;">
       <h1 class="card-title" style="text-align: center; color: #f97300;"><B>Работы по Docker</B></h1>
@@ -403,16 +453,6 @@
          </div>
         </div>
        </div>
-       <div class="col-md-3 col-lg-3 col-sm-12">
-        <div class="card">
-         <div class="card-body">
-            <h4 class="card-title">Неделя 12</h4>
-          <p class="card-text">
-           
-          </p>
-         </div>
-        </div>
-       </div>
      </div>
     </div>
    </div>
@@ -424,5 +464,11 @@
          <H2 style="text-align: center; color: #f97300;">email: miloradovsinox@gmail.com</H2>
        </section>
 </footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+  setTimeout(function(){
+    $('.loader_bg').fadeToggle();
+  }, 1500);
+</script>
 </body>
 </html>
