@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['reg_5',['Reg',['../class_window.html#a79225437ab4c01135b56fe0a881f5ff8',1,'Window']]],
-  ['report_6',['Report',['../class_window.html#ad99c60a7e837966065aa776879e79117',1,'Window']]]
+  ['mytcpclient_5',['MyTcpClient',['../class_window.html#a94ecff3c9b7c21e512ab71474ce0a5c6',1,'Window']]]
 ];

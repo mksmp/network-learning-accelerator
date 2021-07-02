@@ -45,6 +45,8 @@ void \mbox{\hyperlink{class_window_a79225437ab4c01135b56fe0a881f5ff8}{Reg}} ()
 void \mbox{\hyperlink{class_window_a94ef1690898d2ee7507bc6d5a3a678a8}{Fail\+Reg}} ()
 \begin{DoxyCompactList}\small\item\em Функция неудачного завершения регистрации. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_window_ad99c60a7e837966065aa776879e79117}{Report}} (QString data)
+\begin{DoxyCompactList}\small\item\em Функция показ отчета. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_window_a6f2293e6a998de769b541593d457e7e0}{Education\+True}} (QString data)
 \begin{DoxyCompactList}\small\item\em Функция показ отчета. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -134,6 +136,37 @@ false, если данные не соответсвует требованям.
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
+ \mbox{\Hypertarget{class_window_a6f2293e6a998de769b541593d457e7e0}\label{class_window_a6f2293e6a998de769b541593d457e7e0}} 
+\index{Window@{Window}!EducationTrue@{EducationTrue}}
+\index{EducationTrue@{EducationTrue}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{EducationTrue()}{EducationTrue()}}
+{\footnotesize\ttfamily void Window\+::\+Education\+True (\begin{DoxyParamCaption}\item[{QString}]{data }\end{DoxyParamCaption})}
+
+
+
+Функция показ отчета. 
+
+Данная функция реализует действия, которые нужны для предоставления отчета пользователю. Отчет предоставляется в виде таблицы.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & -\/ данные, из которых формируется отчет.\\
+\hline
+\end{DoxyParams}
+Код функции выглядит следующим образом\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{class_window_a6f2293e6a998de769b541593d457e7e0}{Window::EducationTrue}}(QString data)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    ui-\/>winalgoritm1-\/>setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{    ui-\/>winalgoritm2-\/>setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{    ui-\/>winreport-\/>setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{}
+\DoxyCodeLine{    ui-\/>answer-\/>insertPlainText(data);}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
  \mbox{\Hypertarget{class_window_a145ae4d2987da6168a05c076b5012f62}\label{class_window_a145ae4d2987da6168a05c076b5012f62}} 
 \index{Window@{Window}!FailAuth@{FailAuth}}
 \index{FailAuth@{FailAuth}!Window@{Window}}
@@ -170,7 +203,7 @@ false, если данные не соответсвует требованям.
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{class_window_a94ef1690898d2ee7507bc6d5a3a678a8}{Window::FailReg}}()}
 \DoxyCodeLine{\{}
-\DoxyCodeLine{     QMessageBox::critical(\textcolor{keyword}{this}, \textcolor{stringliteral}{"{}Ошибка"{}}, \textcolor{stringliteral}{"{}Регистрация не произошла, повторите попытку позднее или напишите в техническую поддержку!"{}});}
+\DoxyCodeLine{    QMessageBox::critical(\textcolor{keyword}{this}, \textcolor{stringliteral}{"{}Ошибка"{}}, \textcolor{stringliteral}{"{}Регистрация не произошла, повторите попытку позднее или напишите в техническую поддержку!"{}});}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
@@ -238,14 +271,14 @@ false, если данные не соответсвует требованям.
 Код функции выглядит следующим образом\+: 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{class_window_ad99c60a7e837966065aa776879e79117}{Window::Report}}(QString data)}
-\DoxyCodeLine{\{}
-\DoxyCodeLine{    ui-\/>winalgoritm1-\/>setVisible(\textcolor{keyword}{false});}
-\DoxyCodeLine{    ui-\/>winreport-\/>setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        ui-\/>winalgoritm1-\/>setVisible(\textcolor{keyword}{false});}
+\DoxyCodeLine{        ui-\/>winreport-\/>setVisible(\textcolor{keyword}{true});}
 \DoxyCodeLine{}
-\DoxyCodeLine{    QTableView *table;}
+\DoxyCodeLine{        QTableView *table;}
 \DoxyCodeLine{}
-\DoxyCodeLine{    \textcolor{comment}{//ui-\/>table}}
-\DoxyCodeLine{\}}
+\DoxyCodeLine{        \textcolor{comment}{//ui-\/>table}}
+\DoxyCodeLine{    \}}
 
 \end{DoxyCode}
  \mbox{\Hypertarget{class_window_a85f3630943a322f3f6fefdac800efa10}\label{class_window_a85f3630943a322f3f6fefdac800efa10}} 

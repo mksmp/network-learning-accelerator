@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['mytcpclient_18',['MyTcpClient',['../class_window.html#a94ecff3c9b7c21e512ab71474ce0a5c6',1,'Window']]]
+  ['failauth_17',['FailAuth',['../class_window.html#a145ae4d2987da6168a05c076b5012f62',1,'Window']]],
+  ['failreg_18',['FailReg',['../class_window.html#a94ef1690898d2ee7507bc6d5a3a678a8',1,'Window']]]
 ];

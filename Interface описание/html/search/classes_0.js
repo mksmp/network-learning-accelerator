@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mytcpclient_12',['MyTcpClient',['../class_my_tcp_client.html',1,'']]]
+  ['window_13',['Window',['../class_window.html',1,'']]]
 ];

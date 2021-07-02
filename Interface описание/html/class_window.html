@@ -122,6 +122,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad99c60a7e837966065aa776879e79117"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html#ad99c60a7e837966065aa776879e79117">Report</a> (QString data)</td></tr>
 <tr class="memdesc:ad99c60a7e837966065aa776879e79117"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция показ отчета.  <a href="class_window.html#ad99c60a7e837966065aa776879e79117">More...</a><br /></td></tr>
 <tr class="separator:ad99c60a7e837966065aa776879e79117"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f2293e6a998de769b541593d457e7e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html#a6f2293e6a998de769b541593d457e7e0">EducationTrue</a> (QString data)</td></tr>
+<tr class="memdesc:a6f2293e6a998de769b541593d457e7e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция показ отчета.  <a href="class_window.html#a6f2293e6a998de769b541593d457e7e0">More...</a><br /></td></tr>
+<tr class="separator:a6f2293e6a998de769b541593d457e7e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Класс, который отвечает за взаимодействие с пользователем. </p>
@@ -148,7 +151,7 @@ Public Member Functions</h2></td></tr>
 <div class="line">    ui-&gt;winauth-&gt;setVisible(<span class="keyword">false</span>);</div>
 <div class="line">    ui-&gt;winsecond-&gt;setVisible(<span class="keyword">true</span>);</div>
 <div class="line">}</div>
-<div class="ttc" id="aclass_window_html_a6745704a20896e5e9f6b3f5154a16149"><div class="ttname"><a href="class_window.html#a6745704a20896e5e9f6b3f5154a16149">Window::Auth</a></div><div class="ttdeci">void Auth()</div><div class="ttdoc">Функция успешного завершения авторизации.</div><div class="ttdef"><b>Definition:</b> window.cpp:93</div></div>
+<div class="ttc" id="aclass_window_html_a6745704a20896e5e9f6b3f5154a16149"><div class="ttname"><a href="class_window.html#a6745704a20896e5e9f6b3f5154a16149">Window::Auth</a></div><div class="ttdeci">void Auth()</div><div class="ttdoc">Функция успешного завершения авторизации.</div><div class="ttdef"><b>Definition:</b> window.cpp:92</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -234,6 +237,44 @@ false, если данные не соответсвует требованям.
 </div><!-- fragment --> 
 </div>
 </div>
+<a id="a6f2293e6a998de769b541593d457e7e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f2293e6a998de769b541593d457e7e0">&#9670;&nbsp;</a></span>EducationTrue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Window::EducationTrue </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Функция показ отчета. </p>
+<p>Данная функция реализует действия, которые нужны для предоставления отчета пользователю. Отчет предоставляется в виде таблицы.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>- данные, из которых формируется отчет.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Код функции выглядит следующим образом: </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="class_window.html#a6f2293e6a998de769b541593d457e7e0">Window::EducationTrue</a>(QString data)</div>
+<div class="line">{</div>
+<div class="line">    ui-&gt;winalgoritm1-&gt;setVisible(<span class="keyword">false</span>);</div>
+<div class="line">    ui-&gt;winalgoritm2-&gt;setVisible(<span class="keyword">false</span>);</div>
+<div class="line">    ui-&gt;winreport-&gt;setVisible(<span class="keyword">true</span>);</div>
+<div class="line"> </div>
+<div class="line">    ui-&gt;answer-&gt;insertPlainText(data);</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line">}</div>
+<div class="ttc" id="aclass_window_html_a6f2293e6a998de769b541593d457e7e0"><div class="ttname"><a href="class_window.html#a6f2293e6a998de769b541593d457e7e0">Window::EducationTrue</a></div><div class="ttdeci">void EducationTrue(QString data)</div><div class="ttdoc">Функция показ отчета.</div><div class="ttdef"><b>Definition:</b> window.cpp:114</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
 <a id="a145ae4d2987da6168a05c076b5012f62"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a145ae4d2987da6168a05c076b5012f62">&#9670;&nbsp;</a></span>FailAuth()</h2>
 
@@ -255,7 +296,7 @@ false, если данные не соответсвует требованям.
 <div class="line">{</div>
 <div class="line">    QMessageBox::critical(<span class="keyword">this</span>, <span class="stringliteral">&quot;Ошибка&quot;</span>, <span class="stringliteral">&quot;Неправельный логин или пароль!!!&quot;</span>);</div>
 <div class="line">}</div>
-<div class="ttc" id="aclass_window_html_a145ae4d2987da6168a05c076b5012f62"><div class="ttname"><a href="class_window.html#a145ae4d2987da6168a05c076b5012f62">Window::FailAuth</a></div><div class="ttdeci">void FailAuth()</div><div class="ttdoc">Функция неудачного завершения авторизации.</div><div class="ttdef"><b>Definition:</b> window.cpp:99</div></div>
+<div class="ttc" id="aclass_window_html_a145ae4d2987da6168a05c076b5012f62"><div class="ttname"><a href="class_window.html#a145ae4d2987da6168a05c076b5012f62">Window::FailAuth</a></div><div class="ttdeci">void FailAuth()</div><div class="ttdoc">Функция неудачного завершения авторизации.</div><div class="ttdef"><b>Definition:</b> window.cpp:98</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -278,9 +319,9 @@ false, если данные не соответсвует требованям.
 <p>Данная функция реализует действия, которые будут происходить после неудачного прохождения регистрации.</p>
 <p>Код функции выглядит следующим образом: </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="class_window.html#a94ef1690898d2ee7507bc6d5a3a678a8">Window::FailReg</a>()</div>
 <div class="line">{</div>
-<div class="line">     QMessageBox::critical(<span class="keyword">this</span>, <span class="stringliteral">&quot;Ошибка&quot;</span>, <span class="stringliteral">&quot;Регистрация не произошла, повторите попытку позднее или напишите в техническую поддержку!&quot;</span>);</div>
+<div class="line">    QMessageBox::critical(<span class="keyword">this</span>, <span class="stringliteral">&quot;Ошибка&quot;</span>, <span class="stringliteral">&quot;Регистрация не произошла, повторите попытку позднее или напишите в техническую поддержку!&quot;</span>);</div>
 <div class="line">}</div>
-<div class="ttc" id="aclass_window_html_a94ef1690898d2ee7507bc6d5a3a678a8"><div class="ttname"><a href="class_window.html#a94ef1690898d2ee7507bc6d5a3a678a8">Window::FailReg</a></div><div class="ttdeci">void FailReg()</div><div class="ttdoc">Функция неудачного завершения регистрации.</div><div class="ttdef"><b>Definition:</b> window.cpp:110</div></div>
+<div class="ttc" id="aclass_window_html_a94ef1690898d2ee7507bc6d5a3a678a8"><div class="ttname"><a href="class_window.html#a94ef1690898d2ee7507bc6d5a3a678a8">Window::FailReg</a></div><div class="ttdeci">void FailReg()</div><div class="ttdoc">Функция неудачного завершения регистрации.</div><div class="ttdef"><b>Definition:</b> window.cpp:109</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -344,7 +385,7 @@ false, если данные не соответсвует требованям.
 <div class="line">    ui-&gt;winreg-&gt;setVisible(<span class="keyword">false</span>);</div>
 <div class="line">    ui-&gt;winfirst-&gt;setVisible(<span class="keyword">true</span>);</div>
 <div class="line">}</div>
-<div class="ttc" id="aclass_window_html_a79225437ab4c01135b56fe0a881f5ff8"><div class="ttname"><a href="class_window.html#a79225437ab4c01135b56fe0a881f5ff8">Window::Reg</a></div><div class="ttdeci">void Reg()</div><div class="ttdoc">Функция успешного завершения регистрации.</div><div class="ttdef"><b>Definition:</b> window.cpp:104</div></div>
+<div class="ttc" id="aclass_window_html_a79225437ab4c01135b56fe0a881f5ff8"><div class="ttname"><a href="class_window.html#a79225437ab4c01135b56fe0a881f5ff8">Window::Reg</a></div><div class="ttdeci">void Reg()</div><div class="ttdoc">Функция успешного завершения регистрации.</div><div class="ttdef"><b>Definition:</b> window.cpp:103</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -373,15 +414,15 @@ false, если данные не соответсвует требованям.
   </dd>
 </dl>
 <p>Код функции выглядит следующим образом: </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="class_window.html#ad99c60a7e837966065aa776879e79117">Window::Report</a>(QString data)</div>
-<div class="line">{</div>
-<div class="line">    ui-&gt;winalgoritm1-&gt;setVisible(<span class="keyword">false</span>);</div>
-<div class="line">    ui-&gt;winreport-&gt;setVisible(<span class="keyword">true</span>);</div>
+<div class="line">    {</div>
+<div class="line">        ui-&gt;winalgoritm1-&gt;setVisible(<span class="keyword">false</span>);</div>
+<div class="line">        ui-&gt;winreport-&gt;setVisible(<span class="keyword">true</span>);</div>
 <div class="line"> </div>
-<div class="line">    QTableView *table;</div>
+<div class="line">        QTableView *table;</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">//ui-&gt;table</span></div>
-<div class="line">}</div>
-<div class="ttc" id="aclass_window_html_ad99c60a7e837966065aa776879e79117"><div class="ttname"><a href="class_window.html#ad99c60a7e837966065aa776879e79117">Window::Report</a></div><div class="ttdeci">void Report(QString data)</div><div class="ttdoc">Функция показ отчета.</div><div class="ttdef"><b>Definition:</b> window.cpp:115</div></div>
+<div class="line">        <span class="comment">//ui-&gt;table</span></div>
+<div class="line">    }</div>
+<div class="ttc" id="aclass_window_html_ad99c60a7e837966065aa776879e79117"><div class="ttname"><a href="class_window.html#ad99c60a7e837966065aa776879e79117">Window::Report</a></div><div class="ttdeci">void Report(QString data)</div><div class="ttdoc">Функция показ отчета.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -445,7 +486,7 @@ false, если данные не соответсвует требованям.
 <div class="line">{</div>
 <div class="line">    clientSocket-&gt;close();</div>
 <div class="line">}</div>
-<div class="ttc" id="aclass_window_html_af9202062ddd4f56142f155452a4b0912"><div class="ttname"><a href="class_window.html#af9202062ddd4f56142f155452a4b0912">Window::slot_disconnected</a></div><div class="ttdeci">void slot_disconnected()</div><div class="ttdoc">Соединение разорвано.</div><div class="ttdef"><b>Definition:</b> window.cpp:272</div></div>
+<div class="ttc" id="aclass_window_html_af9202062ddd4f56142f155452a4b0912"><div class="ttname"><a href="class_window.html#af9202062ddd4f56142f155452a4b0912">Window::slot_disconnected</a></div><div class="ttdeci">void slot_disconnected()</div><div class="ttdoc">Соединение разорвано.</div><div class="ttdef"><b>Definition:</b> window.cpp:279</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -557,7 +598,7 @@ false, если данные не соответсвует требованям.
 <div class="line">    array.append(message);</div>
 <div class="line">    clientSocket-&gt;write(array);</div>
 <div class="line">}</div>
-<div class="ttc" id="aclass_window_html_a6b6e60bea9c2aeb3060a17060fcaae73"><div class="ttname"><a href="class_window.html#a6b6e60bea9c2aeb3060a17060fcaae73">Window::slot_send_to_server</a></div><div class="ttdeci">void slot_send_to_server(QString message)</div><div class="ttdoc">Отправка сообщение на сервер.</div><div class="ttdef"><b>Definition:</b> window.cpp:265</div></div>
+<div class="ttc" id="aclass_window_html_a6b6e60bea9c2aeb3060a17060fcaae73"><div class="ttname"><a href="class_window.html#a6b6e60bea9c2aeb3060a17060fcaae73">Window::slot_send_to_server</a></div><div class="ttdeci">void slot_send_to_server(QString message)</div><div class="ttdoc">Отправка сообщение на сервер.</div><div class="ttdef"><b>Definition:</b> window.cpp:272</div></div>
 </div><!-- fragment --> 
 </div>
 </div>

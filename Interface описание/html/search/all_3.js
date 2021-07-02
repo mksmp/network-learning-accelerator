@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['mytcpclient_4',['MyTcpClient',['../class_my_tcp_client.html',1,'MyTcpClient'],['../class_window.html#a94ecff3c9b7c21e512ab71474ce0a5c6',1,'Window::MyTcpClient()']]]
+  ['failauth_3',['FailAuth',['../class_window.html#a145ae4d2987da6168a05c076b5012f62',1,'Window']]],
+  ['failreg_4',['FailReg',['../class_window.html#a94ef1690898d2ee7507bc6d5a3a678a8',1,'Window']]]
 ];
