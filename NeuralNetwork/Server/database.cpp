@@ -86,21 +86,4 @@ QString report_insert(std::string report, std::string login, int alg)
     return "alg&0";
 }
 
-QString report_select(std::string report, std::string login, int alg)
-{
-    QSqlDatabase  db = openDataBase();
-    QSqlQuery query = QSqlQuery(db);
-
-    query.prepare("insert into report (login_user, time_of_change, table_report, num_of_alg) values (?, ?, ?)");
-    query.addBindValue(QString::fromStdString(login));
-    query.addBindValue(QString::fromStdString(report));
-    query.addBindValue(alg);
-    query.exec();
-    db.close();
-
-    if ( query.size() == 1)
-        return "alg&1";
-
-    return "alg&0";
-}
 
